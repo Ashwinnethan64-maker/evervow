@@ -1,0 +1,271 @@
+/* ==========================================================================
+   INVITATION SECTION — LUXURY WEDDING STATIONERY SHEET
+   Large Physical Card Aesthetic, Cormorant Serif & Calligraphy Typography
+   ========================================================================== */
+
+.invitation-section {
+  position: relative;
+  width: 100%;
+  padding-block: var(--space-20) var(--space-28);
+  background-color: var(--ivory);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .invitation-section {
+    padding-block: var(--space-24) var(--space-32);
+  }
+}
+
+/* Subtle luxury stationery background radial gradient */
+.invitation-paper-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(252, 248, 243, 0.85) 50%,
+    rgba(247, 238, 230, 0.65) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.invitation-inner-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* Continuous Luxury Stationery Sheet Object */
+.physical-stationery-sheet {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(220, 195, 175, 0.7);
+  box-shadow: 
+    0 10px 30px -4px rgba(143, 91, 83, 0.04),
+    0 24px 64px -12px rgba(143, 91, 83, 0.1),
+    0 0 50px rgba(246, 235, 228, 0.5);
+  border-radius: 30px;
+  padding: 16px;
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .physical-stationery-sheet {
+    padding: 22px;
+  }
+}
+
+.physical-stationery-sheet:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 14px 36px -4px rgba(143, 91, 83, 0.06),
+    0 32px 76px -12px rgba(143, 91, 83, 0.14),
+    0 0 60px rgba(246, 235, 228, 0.7);
+}
+
+.stationery-inner-border {
+  border: 1px solid rgba(220, 195, 175, 0.6);
+  padding: var(--space-12) var(--space-6);
+  position: relative;
+  background: radial-gradient(circle at 50% 35%, #FFFFFF 0%, #FAF8F5 70%, #F7EFEA 100%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .stationery-inner-border {
+    padding: var(--space-16) var(--space-12);
+  }
+}
+
+@media (min-width: 1024px) {
+  .stationery-inner-border {
+    padding: 64px 54px;
+  }
+}
+
+/* Delicate Botanical Corner Embellishments */
+.corner-flourish {
+  position: absolute;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--rose-dark);
+  opacity: 0.45;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.corner-top-left { top: 16px; left: 16px; }
+.corner-top-right { top: 16px; right: 16px; transform: scaleX(-1); }
+.corner-bottom-left { bottom: 16px; left: 16px; transform: scaleY(-1); }
+.corner-bottom-right { bottom: 16px; right: 16px; transform: scale(-1); }
+
+/* 1. Shree Ganeshaya Namaha */
+.invitation-invocation-block {
+  margin-bottom: var(--space-4);
+}
+
+.invocation-text {
+  font-family: var(--font-serif);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  color: var(--rose-dark);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+/* 2. Wedding Monogram Emblem */
+.invitation-monogram-block {
+  margin-bottom: var(--space-6);
+}
+
+/* 3. Invitation Prompt */
+.invitation-prompt-text {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-luxury);
+  color: var(--muted-text);
+  max-width: 520px;
+  line-height: 1.85;
+  margin: 0 auto var(--space-6);
+}
+
+/* 4. Dominant Couple Names */
+.invitation-couple-names-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: var(--space-6);
+}
+
+.invitation-name {
+  font-family: var(--font-script);
+  font-size: clamp(3.6rem, 8vw, 5.8rem);
+  font-weight: 400;
+  color: var(--warm-brown-dark);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+.invitation-name-joiner {
+  font-family: var(--font-serif);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-luxury);
+  color: var(--rose-dark);
+  margin: var(--space-1) 0;
+}
+
+/* 5. Gold Divider */
+.invitation-gold-divider {
+  max-width: 180px;
+  margin: var(--space-3) auto var(--space-8);
+}
+
+/* 6. Event Information Row: DATE | TIME | VENUE */
+.invitation-event-info-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto var(--space-8);
+  gap: var(--space-4);
+}
+
+.event-info-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  text-align: center;
+}
+
+.info-col-label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem; /* 11px */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--rose-dark);
+}
+
+.info-col-value-primary {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 400;
+  color: var(--warm-brown-dark);
+  line-height: 1.25;
+}
+
+.info-col-value-secondary {
+  font-family: var(--font-sans);
+  font-size: 0.75rem; /* 12px */
+  font-weight: 400;
+  color: var(--muted-light);
+  letter-spacing: 0.03em;
+  line-height: 1.35;
+}
+
+.event-info-divider-vertical {
+  width: 1px;
+  height: 48px;
+  background-color: rgba(220, 195, 175, 0.6);
+}
+
+/* 7. Regards */
+.invitation-regards-block {
+  margin-top: var(--space-2);
+}
+
+.regards-label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem; /* 11px */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-luxury);
+  color: var(--muted-light);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+  .physical-stationery-sheet {
+    border-radius: 24px;
+    padding: 12px;
+  }
+
+  .stationery-inner-border {
+    border-radius: 16px;
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .invitation-event-info-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .event-info-divider-vertical {
+    width: 60px;
+    height: 1px;
+    margin: 0 auto;
+  }
+}

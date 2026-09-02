@@ -1,0 +1,241 @@
+/* ==========================================================================
+   FOOTER SECTION — LUXURY INDIAN WEDDING INVITATION CLOSING
+   Exact Match to Reference Screenshots 3 & 4:
+   - Large Centered Wedding Illustration (Dominant Anchor, 760px-860px)
+   - Refined Script Thank-You Heading (52px-68px) in Soft Rose #B98586
+   - Delicate Star Divider
+   - Prominent Wedding Logo Emblem (120px-150px)
+   - Uppercase Couple Names, Date, Venue
+   - Subtle Brand Tag Signature
+   ========================================================================== */
+
+.editorial-footer {
+  position: relative;
+  width: 100%;
+  padding-block: clamp(60px, 8vw, 100px) clamp(50px, 6vw, 80px);
+  background-color: #F8F3EC;
+  border-top: 1px solid rgba(220, 196, 154, 0.3);
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Subtle luxury background radial illumination */
+.footer-paper-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 30%,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(250, 245, 238, 0.75) 50%,
+    rgba(245, 238, 230, 0.5) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer-centered-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ==========================================================================
+   1. LARGE WEDDING ILLUSTRATION ARTWORK (DOMINANT VISUAL ANCHOR)
+   ========================================================================== */
+
+.footer-closing-image-wrapper {
+  width: min(840px, 72vw);
+  margin: 0 auto 34px;
+}
+
+.footer-closing-figure {
+  margin: 0;
+  width: 100%;
+}
+
+.footer-image-frame {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: 520px;
+  background-color: transparent;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(70, 45, 35, 0.08);
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+.footer-image-frame:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 26px 60px rgba(70, 45, 35, 0.12);
+}
+
+.footer-image-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  border-radius: 6px;
+  transition: transform var(--transition-slow);
+}
+
+.footer-image-frame:hover .footer-image-element {
+  transform: scale(1.015);
+}
+
+/* ==========================================================================
+   2. REFINED SCRIPT THANK-YOU HEADING
+   ========================================================================== */
+
+.footer-thank-you-heading {
+  font-family: var(--font-script);
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem); /* 52px-68px desktop */
+  font-weight: 400;
+  line-height: 1.25;
+  color: #B98586; /* Warm dusty rose from reference */
+  margin: 0 auto 22px;
+  max-width: 780px;
+  padding: 0 var(--space-4);
+  letter-spacing: 0.01em;
+}
+
+/* ==========================================================================
+   3. DELICATE STAR DIVIDER
+   ========================================================================== */
+
+.footer-divider-wrapper {
+  margin-bottom: 28px;
+}
+
+.footer-star-divider {
+  max-width: 130px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   4. PROMINENT WEDDING LOGO EMBLEM (120PX-150PX DESKTOP)
+   ========================================================================== */
+
+.footer-monogram-block {
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-monogram-block .brand-logo-emblem-frame {
+  width: 130px;
+  height: 130px;
+}
+
+@media (min-width: 768px) {
+  .footer-monogram-block .brand-logo-emblem-frame {
+    width: 145px;
+    height: 145px;
+  }
+}
+
+/* ==========================================================================
+   5. COUPLE DETAILS BLOCK (NAMES, DATE, VENUE)
+   ========================================================================== */
+
+.footer-details-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+
+.footer-couple-names {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: #5E4A40;
+  margin: 0;
+}
+
+.footer-date-line {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #B98586;
+  margin: 0;
+}
+
+.footer-venue-line {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #8F8178;
+  margin: 0;
+}
+
+/* ==========================================================================
+   6. DELICATE FOOTER SIGNATURE TAG
+   ========================================================================== */
+
+.footer-brand-tag {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 11px;
+  color: #8F8178;
+  letter-spacing: 0.16em;
+  margin: 0;
+  opacity: 0.65;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .footer-closing-image-wrapper {
+    width: 88vw;
+    margin-bottom: 24px;
+  }
+
+  .footer-image-frame {
+    aspect-ratio: 16 / 11;
+  }
+
+  .footer-thank-you-heading {
+    font-size: clamp(2rem, 7vw, 2.6rem);
+    margin-bottom: 18px;
+  }
+
+  .footer-divider-wrapper {
+    margin-bottom: 22px;
+  }
+
+  .footer-monogram-block .brand-logo-emblem-frame {
+    width: 105px;
+    height: 105px;
+  }
+
+  .footer-details-block {
+    gap: 6px;
+    margin-bottom: 28px;
+  }
+
+  .footer-couple-names {
+    font-size: 12px;
+    letter-spacing: 0.26em;
+  }
+
+  .footer-date-line,
+  .footer-venue-line {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+  }
+}

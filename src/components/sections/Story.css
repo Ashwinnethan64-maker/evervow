@@ -1,0 +1,320 @@
+/* ==========================================================================
+   STORY SECTION — REFINED EDITORIAL WEDDING SPREAD (COMPACT & BALANCED)
+   Scale reduced ~25%, 1120px max container, 520px cards, elegant typography
+   ========================================================================== */
+
+.story-section {
+  position: relative;
+  width: 100%;
+  padding-block: var(--space-16) var(--space-20);
+  background-color: var(--cream);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .story-section {
+    padding-block: var(--space-20) var(--space-24);
+  }
+}
+
+/* Subtle luxury stationery background radial gradient */
+.story-paper-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 35%,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(250, 244, 238, 0.85) 45%,
+    rgba(246, 235, 228, 0.65) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 1. Section Container: Refined 1120px max-width */
+.story-inner-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* 2 & 3. Section Header: Compact & Refined */
+.story-intro-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.story-intro-header .editorial-eyebrow {
+  font-size: 12.5px;
+  letter-spacing: var(--tracking-wider);
+  margin-bottom: var(--space-1);
+}
+
+.story-main-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.6vw, 3.1rem); /* ~50-52px desktop */
+  font-weight: 400;
+  color: var(--warm-brown-dark);
+  letter-spacing: -0.01em;
+  margin-top: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.story-divider {
+  max-width: 140px;
+  margin: var(--space-2) auto 0;
+}
+
+/* ==========================================================================
+   4 & 12. CHAPTER BLOCKS & SPACING (BALANCED 1050px ROW, 110px GAP)
+   ========================================================================== */
+
+.story-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+  justify-items: center;
+  margin-bottom: clamp(65px, 8vw, 120px); /* 100-120px desktop gap */
+}
+
+.story-block:last-child {
+  margin-bottom: 0;
+}
+
+/* Desktop Asymmetric 2-Column Spread: Balanced ~520px cards with 50-60px gap */
+@media (min-width: 860px) {
+  .story-block-01 {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 4.5vw, 65px);
+  }
+
+  .story-block-02 {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 4.5vw, 65px);
+  }
+}
+
+.story-image-col {
+  width: 100%;
+  max-width: 530px;
+  display: flex;
+  justify-content: center;
+}
+
+.story-text-col {
+  width: 100%;
+  max-width: 530px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   5 & 6. REFINED IMAGE CARD (COMPACT, 26px RADIUS, 530px MAX WIDTH)
+   ========================================================================== */
+
+.story-image-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.story-photo-card {
+  position: relative;
+  width: 100%;
+  max-width: 530px;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(230, 219, 210, 0.7);
+  border-radius: 26px;
+  padding: 14px;
+  box-shadow: 
+    0 8px 24px -4px rgba(143, 91, 83, 0.04),
+    0 20px 48px -10px rgba(143, 91, 83, 0.08),
+    0 0 35px rgba(246, 235, 228, 0.45);
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .story-photo-card {
+    padding: 14px;
+  }
+}
+
+.story-photo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 12px 28px -4px rgba(143, 91, 83, 0.06),
+    0 26px 56px -10px rgba(143, 91, 83, 0.11),
+    0 0 45px rgba(246, 235, 228, 0.6);
+}
+
+.story-photo-inner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5; /* Controlled elegant ratio */
+  max-height: 640px;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: #FAF8F5;
+}
+
+.story-photo-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 18px;
+  transition: transform var(--transition-slow);
+}
+
+.story-photo-card:hover .story-photo-element {
+  transform: scale(1.012);
+}
+
+.story-photo-caption {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-xs);
+  color: var(--muted-light);
+  letter-spacing: var(--tracking-wide);
+  text-align: center;
+  margin-top: var(--space-2);
+}
+
+/* ==========================================================================
+   7. REFINED TEXT CARD (COMPACT 530px MAX WIDTH, COMFORTABLE PADDING)
+   ========================================================================== */
+
+.editorial-text-panel {
+  width: 100%;
+  max-width: 530px;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(230, 219, 210, 0.7);
+  box-shadow: 
+    0 6px 18px -2px rgba(74, 59, 50, 0.03),
+    0 14px 34px -8px rgba(143, 91, 83, 0.06);
+  border-radius: 26px;
+  padding: var(--space-8) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  position: relative;
+  box-sizing: border-box;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-slow);
+}
+
+.editorial-text-panel:hover {
+  border-color: var(--rose);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 22px -2px rgba(74, 59, 50, 0.05),
+    0 18px 40px -8px rgba(143, 91, 83, 0.08);
+}
+
+@media (min-width: 640px) {
+  .editorial-text-panel {
+    padding: var(--space-10) var(--space-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .editorial-text-panel {
+    padding: 44px 40px; /* Reduced from 55-65px to comfortable 44px */
+  }
+}
+
+/* 8. Chapter Roman Numeral */
+.story-roman-numeral {
+  font-family: var(--font-serif);
+  font-size: 1.05rem; /* ~17px */
+  font-weight: 500;
+  letter-spacing: var(--tracking-wider);
+  color: var(--rose-dark);
+  margin-bottom: var(--space-1);
+  display: inline-block;
+  opacity: 0.9;
+}
+
+/* 9. Chapter Headings */
+.story-subheading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.2vw, 2.05rem); /* ~32-34px desktop */
+  font-weight: 400;
+  color: var(--warm-brown-dark);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-3);
+  line-height: 1.25;
+}
+
+/* 10. Script Quote */
+.story-calligraphy-quote {
+  font-family: var(--font-script);
+  font-size: clamp(1.4rem, 2.1vw, 1.75rem); /* ~26-28px desktop */
+  line-height: 1.35;
+  color: var(--rose-dark);
+  margin: 0 0 var(--space-4) 0;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--hairline);
+  width: 100%;
+}
+
+/* 11. Body Text */
+.story-narrative-paragraph {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--warm-brown);
+  max-width: 420px;
+  margin: 0;
+}
+
+/* ==========================================================================
+   15. MOBILE & TABLET RESPONSIVENESS
+   ========================================================================== */
+
+@media (max-width: 859px) {
+  .story-block {
+    gap: var(--space-6);
+    margin-bottom: 70px;
+  }
+
+  .story-photo-card {
+    border-radius: 22px;
+    padding: 12px;
+  }
+
+  .story-photo-inner,
+  .story-photo-element {
+    border-radius: 15px;
+  }
+
+  .editorial-text-panel {
+    border-radius: 22px;
+    padding: var(--space-6) var(--space-5);
+  }
+
+  .story-block-02 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .story-block-02 .story-image-col {
+    order: 1;
+    width: 100%;
+  }
+
+  .story-block-02 .story-text-col {
+    order: 2;
+    width: 100%;
+    margin-top: var(--space-3);
+  }
+}

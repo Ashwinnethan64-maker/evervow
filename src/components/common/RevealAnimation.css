@@ -1,0 +1,13 @@
+/* ==========================================================================
+   MOTION SYSTEM — ALL ANIMATIONS REMOVED
+   Clean, instant static rendering for all elements
+   ========================================================================== */
+
+.pro-reveal,
+.reveal-wrapper {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  transition: none !important;
+  animation: none !important;
+}

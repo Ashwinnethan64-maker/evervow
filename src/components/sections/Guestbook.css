@@ -1,0 +1,285 @@
+/* ==========================================================================
+   GUESTBOOK SECTION — LUXURY HANDWRITTEN NOTES SPREAD
+   Max 720px form card, 2-column compact message notes grid (1100px max width)
+   ========================================================================== */
+
+.guestbook-section {
+  position: relative;
+  width: 100%;
+  padding-block: var(--space-20) var(--space-24);
+  background-color: var(--cream);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .guestbook-section {
+    padding-block: var(--space-24) var(--space-32);
+  }
+}
+
+/* Subtle luxury background radial gradient */
+.guestbook-paper-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 35%,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(251, 248, 243, 0.85) 50%,
+    rgba(248, 244, 238, 0.65) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.guestbook-inner-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.guestbook-header {
+  margin-bottom: var(--space-12);
+}
+
+.guestbook-main-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4.8vw, 3.6rem);
+  font-weight: 400;
+  color: var(--warm-brown-dark);
+  letter-spacing: -0.02em;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-2);
+  line-height: 1.1;
+}
+
+.guestbook-divider {
+  max-width: 130px;
+  margin: var(--space-2) auto var(--space-3);
+}
+
+.guestbook-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: var(--muted-text);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   COMPACT GUESTBOOK FORM CARD (MAX 720PX)
+   ========================================================================== */
+
+.guestbook-form-wrapper {
+  max-width: 720px;
+  width: min(720px, calc(100% - 40px));
+  margin: 0 auto var(--space-16);
+}
+
+.guestbook-floating-card {
+  background: rgba(255, 253, 249, 0.94);
+  border: 1px solid rgba(220, 196, 154, 0.28);
+  border-radius: 28px;
+  box-shadow: 
+    0 10px 30px -4px rgba(143, 91, 83, 0.03),
+    0 18px 45px -10px rgba(80, 60, 45, 0.06);
+  padding: 44px 38px;
+  position: relative;
+  box-sizing: border-box;
+  transition: box-shadow var(--transition-slow);
+}
+
+@media (min-width: 640px) {
+  .guestbook-floating-card {
+    padding: 48px 50px;
+  }
+}
+
+.guestbook-floating-card:hover {
+  box-shadow: 
+    0 14px 36px -4px rgba(143, 91, 83, 0.05),
+    0 24px 55px -10px rgba(80, 60, 45, 0.09);
+}
+
+.guestbook-editorial-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: left;
+}
+
+.guestbook-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.guestbook-field-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--muted-light);
+}
+
+.guestbook-underline-input,
+.guestbook-underline-textarea {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--warm-brown-dark);
+  border-radius: 0;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.guestbook-underline-input::placeholder,
+.guestbook-underline-textarea::placeholder {
+  color: var(--muted-light);
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+.guestbook-underline-input:focus,
+.guestbook-underline-textarea:focus {
+  outline: none;
+  border-bottom-color: var(--rose-muted);
+  box-shadow: 0 1px 0 0 var(--rose-muted);
+}
+
+.guestbook-underline-textarea {
+  resize: vertical;
+  min-height: 68px;
+  line-height: 1.6;
+}
+
+.guestbook-confirmation-banner {
+  padding: var(--space-3);
+  background-color: var(--sage-light);
+  border-left: 2px solid var(--sage);
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: #3D5A5B;
+  border-radius: 4px;
+}
+
+.guestbook-error-banner {
+  padding: var(--space-3);
+  background-color: rgba(185, 74, 72, 0.08);
+  border-left: 2px solid #B94A48;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: #B94A48;
+  border-radius: 4px;
+}
+
+.guestbook-submit-container {
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   2-COLUMN GUESTBOOK MESSAGE NOTES GRID (MAX 1100PX)
+   ========================================================================== */
+
+.guestbook-wishes-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.wishes-two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .wishes-two-col-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+.handwritten-paper-card {
+  background: rgba(255, 253, 249, 0.96);
+  border: 1px solid rgba(220, 196, 154, 0.25);
+  border-radius: 24px;
+  box-shadow: 
+    0 6px 20px -2px rgba(90, 65, 50, 0.03),
+    0 14px 35px -8px rgba(90, 65, 50, 0.055);
+  padding: 34px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  position: relative;
+  box-sizing: border-box;
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow), border-color var(--transition-base);
+}
+
+.handwritten-paper-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--rose);
+  box-shadow: 
+    0 10px 26px -2px rgba(90, 65, 50, 0.05),
+    0 20px 45px -8px rgba(90, 65, 50, 0.09);
+}
+
+.note-mini-flourish {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  color: var(--champagne);
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+
+.note-script-quote {
+  font-family: var(--font-script);
+  font-size: clamp(1.4rem, 2.1vw, 1.85rem);
+  line-height: 1.35;
+  font-weight: 400;
+  color: #C08F90; /* Romantic soft rose quote color from reference */
+  margin: 0 0 16px 0;
+  width: 100%;
+}
+
+.note-author-label {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #9C8A82;
+  margin-top: auto;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .guestbook-floating-card {
+    padding: 34px 24px;
+    border-radius: 22px;
+  }
+
+  .handwritten-paper-card {
+    padding: 26px 22px;
+    border-radius: 20px;
+  }
+
+  .note-script-quote {
+    font-size: 1.45rem;
+  }
+}

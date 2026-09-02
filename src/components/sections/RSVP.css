@@ -1,0 +1,375 @@
+/* ==========================================================================
+   RSVP SECTION — LUXURY WEDDING STATIONERY FORM (COMPACT 720PX CARD)
+   Underline fields, 2-column layout, pill champagne button, warm ivory theme
+   ========================================================================== */
+
+.rsvp-section {
+  position: relative;
+  width: 100%;
+  padding-block: var(--space-20) var(--space-24);
+  background-color: var(--ivory);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .rsvp-section {
+    padding-block: var(--space-24) var(--space-32);
+  }
+}
+
+/* Subtle luxury background radial gradient */
+.rsvp-paper-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 35%,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(251, 248, 243, 0.85) 50%,
+    rgba(248, 244, 238, 0.65) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.rsvp-inner-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.rsvp-header {
+  margin-bottom: var(--space-12);
+}
+
+.rsvp-main-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4.8vw, 3.6rem);
+  font-weight: 400;
+  color: var(--warm-brown-dark);
+  letter-spacing: -0.02em;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-2);
+  line-height: 1.1;
+}
+
+.rsvp-divider {
+  max-width: 130px;
+  margin: var(--space-2) auto var(--space-3);
+}
+
+.rsvp-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: var(--muted-text);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   COMPACT CENTERED RSVP FORM CARD (MAX 720PX)
+   ========================================================================== */
+
+.rsvp-card-wrapper {
+  max-width: 720px;
+  width: min(720px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.rsvp-floating-card {
+  background: rgba(255, 253, 249, 0.94);
+  border: 1px solid rgba(220, 196, 154, 0.35);
+  border-radius: 28px;
+  box-shadow: 
+    0 10px 30px -4px rgba(143, 91, 83, 0.03),
+    0 20px 50px -10px rgba(90, 65, 50, 0.07);
+  padding: 48px 42px;
+  position: relative;
+  box-sizing: border-box;
+  transition: box-shadow var(--transition-slow);
+}
+
+@media (min-width: 640px) {
+  .rsvp-floating-card {
+    padding: 56px 60px;
+  }
+}
+
+.rsvp-floating-card:hover {
+  box-shadow: 
+    0 14px 36px -4px rgba(143, 91, 83, 0.05),
+    0 26px 60px -10px rgba(90, 65, 50, 0.1);
+}
+
+/* Form Structure */
+.rsvp-editorial-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  text-align: left;
+}
+
+.rsvp-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rsvp-field-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--muted-light);
+}
+
+.required-star {
+  color: var(--rose-dark);
+}
+
+/* ==========================================================================
+   ELEGANT UNDERLINE INPUTS (NO BOXED SAAS STYLE)
+   ========================================================================== */
+
+.rsvp-underline-input,
+.rsvp-underline-select,
+.rsvp-underline-textarea {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem; /* 15px */
+  color: var(--warm-brown-dark);
+  border-radius: 0;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.rsvp-underline-input::placeholder,
+.rsvp-underline-textarea::placeholder {
+  color: var(--muted-light);
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+.rsvp-underline-input:focus,
+.rsvp-underline-select:focus,
+.rsvp-underline-textarea:focus {
+  outline: none;
+  border-bottom-color: var(--rose-muted);
+  box-shadow: 0 1px 0 0 var(--rose-muted);
+}
+
+.rsvp-underline-input.input-error {
+  border-bottom-color: #B94A48;
+}
+
+.rsvp-underline-textarea {
+  resize: vertical;
+  min-height: 64px;
+  line-height: 1.6;
+}
+
+.rsvp-inline-error {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: #B94A48;
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   BALANCED TWO-COLUMN RSVP FIELDS (ATTENDANCE & MEAL PREFERENCE)
+   ========================================================================== */
+
+.rsvp-two-col-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding-top: 4px;
+}
+
+@media (min-width: 640px) {
+  .rsvp-two-col-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+.rsvp-col-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rsvp-options-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rsvp-custom-radio-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.rsvp-custom-radio-row input[type="radio"] {
+  display: none;
+}
+
+.radio-circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(180, 150, 130, 0.45);
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.radio-circle::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--rose-dark);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.rsvp-custom-radio-row input[type="radio"]:checked + .radio-circle {
+  border-color: var(--rose-dark);
+}
+
+.rsvp-custom-radio-row input[type="radio"]:checked + .radio-circle::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.radio-label-text {
+  font-family: var(--font-sans);
+  font-size: 0.875rem; /* 14px */
+  color: var(--warm-brown);
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   LUXURY CHAMPAGNE PILL BUTTON
+   ========================================================================== */
+
+.rsvp-submit-container {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.champagne-pill-btn {
+  width: 100%;
+  max-width: 320px;
+  height: 56px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #E8D4A8 0%,
+    #F1E2BD 50%,
+    #D9BD91 100%
+  );
+  border: 1px solid #D2B582;
+  color: #5F4A40;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(150, 110, 60, 0.12);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.champagne-pill-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(150, 110, 60, 0.18);
+  filter: brightness(1.03);
+}
+
+.champagne-pill-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.rsvp-submit-error-banner {
+  padding: var(--space-3);
+  background-color: rgba(185, 74, 72, 0.08);
+  border-left: 2px solid #B94A48;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: #B94A48;
+  border-radius: 4px;
+}
+
+/* Success State */
+.rsvp-success-state {
+  text-align: center;
+  padding: var(--space-8) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.success-flourish {
+  font-size: var(--text-xl);
+  color: var(--champagne);
+  margin-bottom: 4px;
+}
+
+.success-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 400;
+  color: var(--warm-brown-dark);
+  margin: 0;
+}
+
+.success-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-md);
+  color: var(--muted-text);
+  margin: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .rsvp-floating-card {
+    padding: 36px 24px;
+    border-radius: 22px;
+  }
+
+  .rsvp-editorial-form {
+    gap: 22px;
+  }
+
+  .champagne-pill-btn {
+    height: 52px;
+    max-width: 100%;
+  }
+}

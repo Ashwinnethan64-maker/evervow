@@ -1,0 +1,296 @@
+/* ==========================================================================
+   GALLERY SECTION — ASYMMETRIC EDITORIAL WEDDING PHOTO SPREAD
+   Exact Match to Reference: Left Tall Feature + (2 Squares + 1 Venue) + 1 Bottom Wide
+   ========================================================================== */
+
+.gallery-section {
+  position: relative;
+  width: 100%;
+  padding-block: var(--space-20) var(--space-24);
+  background-color: var(--cream);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .gallery-section {
+    padding-block: var(--space-24) var(--space-32);
+  }
+}
+
+/* Subtle luxury background radial gradient */
+.gallery-paper-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 35%,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(252, 248, 243, 0.85) 50%,
+    rgba(247, 238, 230, 0.65) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gallery-inner-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.gallery-header {
+  margin-bottom: var(--space-12);
+}
+
+.gallery-main-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+  font-weight: 400;
+  color: var(--warm-brown-dark);
+  letter-spacing: -0.01em;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-2);
+  line-height: 1.15;
+}
+
+.gallery-divider {
+  max-width: 140px;
+  margin: var(--space-2) auto var(--space-3);
+}
+
+.gallery-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: var(--muted-text);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   EDITORIAL PHOTO COMPOSITION SPREAD
+   ========================================================================== */
+
+.gallery-editorial-composition {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+/* Top Split Block: Left Tall Feature (48%) + Right Multi-grid (52%) */
+.gallery-main-split-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+  align-items: stretch;
+}
+
+@media (min-width: 860px) {
+  .gallery-main-split-block {
+    grid-template-columns: 1.05fr 1fr;
+    gap: 16px;
+  }
+}
+
+/* Left Column: Tall Archway Feature */
+.gallery-left-feature-col {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.gallery-tall-feature-frame {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 5.2;
+}
+
+/* Right Column: 2 Squares + 1 Wide Venue */
+.gallery-right-multi-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-two-squares-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+.gallery-square-item {
+  width: 100%;
+}
+
+.gallery-square-frame {
+  aspect-ratio: 1 / 1;
+}
+
+.gallery-venue-wide-item {
+  width: 100%;
+  flex: 1;
+}
+
+.gallery-venue-wide-frame {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+/* Bottom Full-Width Wide Block (Sunset Couple) */
+.gallery-bottom-wide-block {
+  width: 100%;
+}
+
+.gallery-bottom-panoramic-frame {
+  width: 100%;
+  aspect-ratio: 16 / 7.8;
+}
+
+/* ==========================================================================
+   PHOTO CARD FRAMES & THUMBNAIL BUTTONS
+   ========================================================================== */
+
+.gallery-card-frame {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(230, 218, 208, 0.75);
+  box-shadow: 
+    0 8px 24px -4px rgba(143, 91, 83, 0.04),
+    0 18px 44px -10px rgba(143, 91, 83, 0.08);
+  border-radius: 24px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow), border-color var(--transition-base);
+}
+
+.gallery-card-frame:hover {
+  transform: translateY(-3px);
+  border-color: var(--rose);
+  box-shadow: 
+    0 12px 28px -4px rgba(143, 91, 83, 0.07),
+    0 24px 56px -10px rgba(143, 91, 83, 0.12);
+}
+
+.gallery-thumbnail-btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}
+
+.gallery-thumbnail-btn:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 3px;
+}
+
+.gallery-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+  transition: transform var(--transition-slow);
+}
+
+.gallery-card-frame:hover .gallery-photo-img {
+  transform: scale(1.018);
+}
+
+/* Hover Overlay */
+.thumbnail-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(47, 36, 30, 0.75) 100%);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-4);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  pointer-events: none;
+}
+
+.gallery-card-frame:hover .thumbnail-hover-overlay {
+  opacity: 1;
+}
+
+.hover-expand-icon {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  color: #FFFFFF;
+  font-size: var(--text-md);
+  opacity: 0.9;
+}
+
+.hover-caption {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.875rem;
+  color: var(--blush-light);
+  letter-spacing: 0.01em;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .gallery-card-frame {
+    border-radius: 18px;
+    padding: 8px;
+  }
+
+  .gallery-thumbnail-btn,
+  .gallery-photo-img,
+  .thumbnail-hover-overlay {
+    border-radius: 12px;
+  }
+
+  .gallery-editorial-composition {
+    gap: 12px;
+  }
+
+  .gallery-main-split-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .gallery-tall-feature-frame {
+    aspect-ratio: 4 / 5;
+  }
+
+  .gallery-two-squares-row {
+    gap: 12px;
+  }
+
+  .gallery-square-frame {
+    aspect-ratio: 1 / 1;
+  }
+
+  .gallery-venue-wide-frame {
+    aspect-ratio: 16 / 10;
+  }
+
+  .gallery-bottom-panoramic-frame {
+    aspect-ratio: 16 / 10;
+  }
+}

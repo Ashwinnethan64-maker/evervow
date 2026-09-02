@@ -1,0 +1,302 @@
+/* ==========================================================================
+   INTERACTIVE GOLD FOIL SCRATCH CARD — LARGE CENTERPIECE DESIGN
+   Desktop width: ~760-820px, Height: ~450-480px, Rich metallic foil & luxury reveal
+   ========================================================================== */
+
+.scratch-card-outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.scratch-card-container {
+  position: relative;
+  width: 100%;
+  max-width: 780px;
+  min-height: 440px;
+  aspect-ratio: 1.65 / 1;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(220, 195, 175, 0.7);
+  border-radius: 30px;
+  box-shadow: 
+    0 10px 30px -4px rgba(143, 91, 83, 0.05),
+    0 24px 64px -12px rgba(143, 91, 83, 0.12),
+    0 0 45px rgba(246, 235, 228, 0.5);
+  overflow: hidden;
+  user-select: none;
+  touch-action: none;
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+  box-sizing: border-box;
+}
+
+@media (max-width: 860px) {
+  .scratch-card-container {
+    max-width: 92vw;
+    min-height: 400px;
+    aspect-ratio: 1.45 / 1;
+    border-radius: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scratch-card-container {
+    max-width: 92vw;
+    min-height: 360px;
+    aspect-ratio: 1.3 / 1;
+    border-radius: 20px;
+  }
+}
+
+.scratch-card-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 14px 36px -4px rgba(143, 91, 83, 0.08),
+    0 32px 76px -12px rgba(143, 91, 83, 0.16),
+    0 0 55px rgba(246, 235, 228, 0.7);
+}
+
+/* ==========================================================================
+   LAYER 1: UNDERNEATH LUXURY REVEALED STATIONERY CONTENT
+   ========================================================================== */
+
+.scratch-revealed-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #FAF8F5 65%, #F7EFEA 100%);
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .scratch-revealed-layer {
+    padding: 22px;
+  }
+}
+
+.revealed-inner-border {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(220, 195, 175, 0.6);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) var(--space-4);
+  gap: var(--space-2);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.revealed-brand-logo {
+  margin-bottom: var(--space-1);
+}
+
+.revealed-save-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-luxury);
+  color: var(--rose-dark);
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.revealed-date-composition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: var(--space-1) 0;
+  gap: 0;
+}
+
+.revealed-date-day {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem); /* Large focal point */
+  font-weight: 400;
+  color: var(--warm-brown-dark);
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  margin: 0;
+}
+
+.revealed-date-year {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.8vw, 1.8rem);
+  font-weight: 300;
+  color: var(--warm-brown);
+  letter-spacing: var(--tracking-wide);
+  line-height: 1.2;
+}
+
+.revealed-closing-phrase {
+  font-family: var(--font-script);
+  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+  color: var(--rose-dark);
+  margin: var(--space-1) 0 0;
+  line-height: 1.3;
+}
+
+/* ==========================================================================
+   LAYER 2: GOLD FOIL SCRATCH CANVAS & SHIMMER
+   ========================================================================== */
+
+.scratch-foil-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: crosshair;
+  border-radius: inherit;
+}
+
+/* Subtle Shimmer Reflection across Gold Foil */
+.foil-shimmer-reflection {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 200% 200%;
+  animation: foilShimmer 5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 3;
+  border-radius: inherit;
+}
+
+@keyframes foilShimmer {
+  0% {
+    background-position: -200% -200%;
+  }
+  35%, 100% {
+    background-position: 200% 200%;
+  }
+}
+
+/* ==========================================================================
+   CELEBRATION PARTICLES
+   ========================================================================== */
+
+.celebration-particles {
+  position: absolute;
+  inset: -20px;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  opacity: 0;
+  animation: floatCelebration 2.2s ease-out forwards;
+}
+
+.petal {
+  font-size: 14px;
+}
+
+.sparkle {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--champagne);
+}
+
+.petal-1 { top: 70%; left: 15%; animation-delay: 0.1s; }
+.sparkle-1 { top: 30%; left: 80%; animation-delay: 0.2s; }
+.petal-2 { top: 60%; left: 75%; animation-delay: 0.35s; }
+.sparkle-2 { top: 20%; left: 25%; animation-delay: 0.4s; }
+.petal-3 { top: 40%; left: 50%; animation-delay: 0.5s; }
+.sparkle-3 { top: 75%; left: 45%; animation-delay: 0.6s; }
+
+@keyframes floatCelebration {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.6) rotate(0deg);
+  }
+  30% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) scale(1.1) rotate(45deg);
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBLE & DIRECT REVEAL LINK
+   ========================================================================== */
+
+.scratch-accessible-fallback {
+  margin-top: var(--space-6);
+  text-align: center;
+}
+
+.accessible-reveal-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-xs);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.accessible-reveal-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.accessible-reveal-btn:focus-visible {
+  outline: 1.5px solid var(--rose);
+  outline-offset: 2px;
+}
+
+.fallback-prompt {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--muted-light);
+}
+
+.fallback-action {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--warm-brown);
+  border-bottom: 1px solid var(--rose-dark);
+  font-weight: 500;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.accessible-reveal-btn:hover .fallback-action {
+  color: var(--rose-dark);
+}
+
+.accessible-revealed-status {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--rose-dark);
+  letter-spacing: var(--tracking-wide);
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .foil-shimmer-reflection,
+  .particle {
+    display: none !important;
+    animation: none !important;
+  }
+}

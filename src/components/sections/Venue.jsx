@@ -1,0 +1,149 @@
+import React from 'react';
+import { weddingData } from '../../config/weddingData';
+import { Eyebrow } from '../common/Eyebrow';
+import { Divider } from '../common/Divider';
+import { RevealAnimation } from '../common/RevealAnimation';
+import './Venue.css';
+
+export const Venue = () => {
+  const { venue } = weddingData;
+
+  const activeAdditionalInfo = Object.entries(venue.additionalInfo || {}).filter(
+    ([_, value]) => value && typeof value === 'string' && value.trim().length > 0
+  );
+
+  return (
+    <section id="venue" className="editorial-section venue-section" aria-label="Venue and Location">
+      {/* Background radial glow */}
+      <div className="venue-paper-backdrop" aria-hidden="true" />
+
+      <div className="section-container venue-inner-container">
+        
+        {/* Header */}
+        <header className="venue-header text-center">
+          <RevealAnimation animation="fade-up">
+            <Eyebrow>{venue.eyebrow}</Eyebrow>
+            <h2 className="venue-main-heading">{venue.title}</h2>
+            <Divider symbol="star" className="venue-divider" />
+          </RevealAnimation>
+        </header>
+
+        {/* Full-Width Luxury Venue Image Artwork with 1100ms image-reveal */}
+        <div className="venue-cinematic-image-wrapper">
+          <RevealAnimation animation="image-reveal" duration={1100} delay={100}>
+            <figure className="venue-figure">
+              <div className="venue-image-frame">
+                <img
+                  src={venue.image}
+                  alt={venue.imageAlt}
+                  className="venue-image-element"
+                  loading="lazy"
+                />
+              </div>
+            </figure>
+          </RevealAnimation>
+        </div>
+
+        {/* 2 Equal-Height Balanced Columns: Left = Details Card (200ms), Right = Google Maps (320ms) */}
+        <div className="venue-editorial-grid">
+          
+          {/* Left Column: Venue Information Card */}
+          <div className="venue-grid-col">
+            <RevealAnimation animation="card-reveal" delay={200} duration={850} className="venue-card-animation-wrapper">
+              <div className="venue-info-card">
+                <div className="venue-info-card-inner">
+                  
+                  {/* Address Group */}
+                  <div className="venue-detail-group">
+                    <span className="venue-sublabel">ADDRESS</span>
+                    <h3 className="venue-name-heading">{venue.name}</h3>
+                    <p className="venue-city-text">{venue.city}, {venue.state}</p>
+                  </div>
+
+                  <div className="venue-card-divider" aria-hidden="true" />
+
+                  {/* Event Timing Group */}
+                  <div className="venue-detail-group">
+                    <span className="venue-sublabel">EVENT TIMING</span>
+                    <p className="timing-value">{venue.timingDisplay}</p>
+                  </div>
+
+                  {/* Get Directions Button */}
+                  <div className="venue-action-wrapper">
+                    <a
+                      href={venue.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="venue-directions-btn"
+                      aria-label={`Get directions to ${venue.name} ${venue.city}`}
+                    >
+                      GET DIRECTIONS
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+            </RevealAnimation>
+          </div>
+
+          {/* Right Column: Google Maps Interactive Embed Card */}
+          <div className="venue-grid-col">
+            <RevealAnimation animation="card-reveal" delay={320} duration={850} className="venue-card-animation-wrapper">
+              <div className="venue-map-card">
+                <div className="venue-map-card-inner">
+                  
+                  {/* Top-Left 'Open in Maps' floating button */}
+                  <a
+                    href={venue.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="open-in-maps-overlay-btn"
+                    aria-label={`Open ${venue.name} in Google Maps`}
+                  >
+                    <span>OPEN IN MAPS</span>
+                    <span className="arrow-icon">↗</span>
+                  </a>
+
+                  {/* Google Maps Embed iframe */}
+                  <iframe
+                    title="Google Maps Location for Woodrose Belgaum"
+                    src={venue.embedMapUrl}
+                    className="venue-map-iframe"
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+
+                </div>
+              </div>
+            </RevealAnimation>
+          </div>
+
+        </div>
+
+        {/* 3-Column Supporting Travel Information */}
+        {activeAdditionalInfo.length > 0 && (
+          <div className="venue-additional-info-wrapper">
+            <div className="venue-additional-grid">
+              {activeAdditionalInfo.map(([key, text], iIdx) => (
+                <RevealAnimation
+                  key={key}
+                  animation="fade-up"
+                  delay={420 + iIdx * 100}
+                  duration={750}
+                  className="additional-info-anim-wrapper"
+                >
+                  <div className="additional-info-col">
+                    <span className="additional-info-label">{key.toUpperCase()}</span>
+                    <p className="additional-info-text">{text}</p>
+                  </div>
+                </RevealAnimation>
+              ))}
+            </div>
+          </div>
+        )}
+
+      </div>
+    </section>
+  );
+};

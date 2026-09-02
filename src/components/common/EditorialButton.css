@@ -1,0 +1,73 @@
+.editorial-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xs);
+}
+
+/* Sizes */
+.btn-sm {
+  font-size: var(--text-xs);
+  padding: 0.6rem 1.4rem;
+}
+
+.btn-md {
+  font-size: var(--text-sm);
+  padding: 0.85rem 2.2rem;
+}
+
+.btn-lg {
+  font-size: var(--text-sm);
+  padding: 1.1rem 2.8rem;
+}
+
+/* Variants */
+.btn-outline {
+  background-color: transparent;
+  color: var(--warm-brown);
+  border: 1px solid var(--rose);
+}
+
+.btn-outline:hover {
+  background-color: var(--blush);
+  border-color: var(--rose-dark);
+  color: var(--warm-brown-dark);
+}
+
+.btn-solid {
+  background-color: var(--rose-dark);
+  color: var(--ivory);
+  border: 1px solid var(--rose-dark);
+}
+
+.btn-solid:hover {
+  background-color: var(--warm-brown);
+  border-color: var(--warm-brown);
+  color: var(--cream);
+}
+
+.btn-text {
+  background-color: transparent;
+  color: var(--warm-brown);
+  border: 1px solid transparent;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.btn-text:hover {
+  color: var(--rose-dark);
+}
+
+.editorial-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
