@@ -12,6 +12,25 @@
   flex: 1;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--card-border), transparent);
+  transform-origin: center;
+  transform: scaleX(0);
+  transition: transform 800ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+
+.divider-line-left {
+  transform-origin: right center;
+}
+
+.divider-line-right {
+  transform-origin: left center;
+}
+
+/* When parent reveal-wrapper or section is revealed, scale lines */
+.is-visible .divider-line,
+.reveal-wrapper.is-visible .divider-line,
+.editorial-divider.is-visible .divider-line {
+  transform: scaleX(1);
 }
 
 .divider-symbol {
@@ -19,6 +38,13 @@
   color: var(--rose);
   font-size: var(--text-sm);
   line-height: 1;
+  opacity: 0.85;
+  transition: transform 600ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 600ms ease;
+}
+
+.is-visible .divider-symbol,
+.reveal-wrapper.is-visible .divider-symbol {
+  transform: scale(1);
   opacity: 0.85;
 }
 
@@ -28,4 +54,11 @@
   border-radius: var(--radius-full);
   background-color: var(--rose);
   opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .divider-line {
+    transform: none !important;
+    transition: none !important;
+  }
 }

@@ -1,7 +1,7 @@
 /* ==========================================================================
    HERO / OPENING WEDDING INVITATION EXPERIENCE
    Soft, romantic, minimal, spacious & luxury editorial aesthetic
-   Static clean presentation (Animations removed)
+   Choreographed Onload Sequence, Letter-by-Letter Names & 9s Image Breathing
    ========================================================================== */
 
 .hero-section {
@@ -53,13 +53,6 @@
   padding: 0 var(--space-6);
 }
 
-/* Static Hero Elements */
-.hero-anim-item {
-  opacity: 1;
-  transform: none;
-  animation: none;
-}
-
 .hero-monogram-block {
   margin-bottom: var(--space-4);
 }
@@ -77,7 +70,13 @@
   color: var(--warm-brown);
   opacity: 0.85;
   display: inline-block;
+  transition: letter-spacing 0.5s ease, opacity 0.5s ease;
 }
+
+/* ==========================================================================
+   LETTER-BY-LETTER HERO HEADING REVEAL (Ash WITH Sakshi)
+   40-80ms character stagger, blur(8px) translateY(18px) -> blur(0) translateY(0)
+   ========================================================================== */
 
 .hero-names-architecture {
   display: flex;
@@ -86,6 +85,10 @@
   justify-content: center;
   margin-bottom: var(--space-3);
   width: 100%;
+}
+
+.hero-name-item {
+  display: inline-block;
 }
 
 .hero-joiner-item {
@@ -101,7 +104,30 @@
   letter-spacing: 0.01em;
   display: inline-block;
   padding: 0 var(--space-4);
+  margin: 0;
   text-shadow: 0 1px 2px rgba(74, 59, 50, 0.04);
+}
+
+.hero-letter {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(18px);
+  animation: heroLetterReveal 850ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+@keyframes heroLetterReveal {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
 }
 
 .hero-joiner-text {
@@ -162,7 +188,11 @@
   margin: 0;
 }
 
-/* Integrated Wedding Artwork */
+/* ==========================================================================
+   HERO PHOTOGRAPH & CONTINUOUS 9S BREATHING ANIMATION
+   scale(1) -> scale(1.015) -> scale(1) over 9s ease-in-out infinite
+   ========================================================================== */
+
 .hero-photograph-block {
   width: 100%;
   max-width: 480px;
@@ -177,6 +207,8 @@
   aspect-ratio: 4 / 5;
   border-radius: var(--radius-sm);
   overflow: hidden;
+  box-shadow: 0 16px 40px rgba(90, 65, 50, 0.08);
+  transition: transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
   -webkit-mask-image: linear-gradient(
     180deg,
     transparent 0%,
@@ -193,12 +225,35 @@
   );
 }
 
+.hero-integrated-photo-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 55px rgba(90, 65, 50, 0.12);
+}
+
 .hero-integrated-photo-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
   display: block;
+}
+
+/* 9s Hero Breathing Animation */
+.hero-breathing-photo {
+  animation: heroPhotoBreathing 9s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes heroPhotoBreathing {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.015);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .photo-blend-top-overlay {
@@ -236,11 +291,12 @@
   text-decoration: none;
   cursor: pointer;
   opacity: 0.75;
-  transition: opacity var(--transition-fast);
+  transition: opacity var(--transition-fast), transform 0.3s ease;
 }
 
 .hero-scroll-link:hover {
   opacity: 1;
+  transform: translateY(2px);
 }
 
 .hero-scroll-caption {
@@ -262,9 +318,44 @@
 
 .hero-scroll-indicator-line {
   position: absolute;
-  top: 0;
+  top: -100%;
   left: 0;
   width: 100%;
   height: 100%;
   background: linear-gradient(180deg, var(--rose-dark) 0%, transparent 100%);
+  animation: heroScrollDrop 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes heroScrollDrop {
+  0% {
+    top: -100%;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-letter {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .hero-breathing-photo {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .hero-scroll-indicator-line {
+    animation: none !important;
+    transform: none !important;
+  }
 }

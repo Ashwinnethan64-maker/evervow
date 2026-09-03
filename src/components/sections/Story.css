@@ -1,6 +1,6 @@
 /* ==========================================================================
    STORY SECTION — REFINED EDITORIAL WEDDING SPREAD (COMPACT & BALANCED)
-   Scale reduced ~25%, 1120px max container, 520px cards, elegant typography
+   Enhanced Card Hover Dynamics, 1600ms Cinematic Photo Scale & Interactive Elevation
    ========================================================================== */
 
 .story-section {
@@ -55,7 +55,7 @@
 
 .story-main-heading {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 3.6vw, 3.1rem); /* ~50-52px desktop */
+  font-size: clamp(2rem, 3.6vw, 3.1rem);
   font-weight: 400;
   color: var(--warm-brown-dark);
   letter-spacing: -0.01em;
@@ -69,7 +69,7 @@
 }
 
 /* ==========================================================================
-   4 & 12. CHAPTER BLOCKS & SPACING (BALANCED 1050px ROW, 110px GAP)
+   4. CHAPTER BLOCKS & SPACING
    ========================================================================== */
 
 .story-block {
@@ -78,14 +78,13 @@
   gap: var(--space-8);
   align-items: center;
   justify-items: center;
-  margin-bottom: clamp(65px, 8vw, 120px); /* 100-120px desktop gap */
+  margin-bottom: clamp(65px, 8vw, 120px);
 }
 
 .story-block:last-child {
   margin-bottom: 0;
 }
 
-/* Desktop Asymmetric 2-Column Spread: Balanced ~520px cards with 50-60px gap */
 @media (min-width: 860px) {
   .story-block-01 {
     grid-template-columns: 1fr 1fr;
@@ -113,7 +112,7 @@
 }
 
 /* ==========================================================================
-   5 & 6. REFINED IMAGE CARD (COMPACT, 26px RADIUS, 530px MAX WIDTH)
+   5 & 6. REFINED IMAGE CARD WITH 1600MS CINEMATIC HOVER ZOOM
    ========================================================================== */
 
 .story-image-figure {
@@ -136,7 +135,7 @@
     0 8px 24px -4px rgba(143, 91, 83, 0.04),
     0 20px 48px -10px rgba(143, 91, 83, 0.08),
     0 0 35px rgba(246, 235, 228, 0.45);
-  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.6s cubic-bezier(0.22, 0.61, 0.36, 1), border-color 0.4s ease;
   box-sizing: border-box;
 }
 
@@ -147,21 +146,21 @@
 }
 
 .story-photo-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
+  border-color: rgba(216, 175, 164, 0.6);
   box-shadow: 
-    0 12px 28px -4px rgba(143, 91, 83, 0.06),
-    0 26px 56px -10px rgba(143, 91, 83, 0.11),
-    0 0 45px rgba(246, 235, 228, 0.6);
+    0 14px 32px -4px rgba(143, 91, 83, 0.08),
+    0 30px 64px -10px rgba(143, 91, 83, 0.13),
+    0 0 45px rgba(246, 235, 228, 0.7);
 }
 
 .story-photo-inner {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5; /* Controlled elegant ratio */
-  max-height: 640px;
+  aspect-ratio: 4 / 5;
   border-radius: 18px;
   overflow: hidden;
-  background-color: #FAF8F5;
+  background-color: var(--ivory);
 }
 
 .story-photo-element {
@@ -171,11 +170,11 @@
   object-position: center top;
   display: block;
   border-radius: 18px;
-  transition: transform var(--transition-slow);
+  transition: transform 1600ms cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.6s ease;
 }
 
 .story-photo-card:hover .story-photo-element {
-  transform: scale(1.012);
+  transform: scale(1.06);
 }
 
 .story-photo-caption {
@@ -186,10 +185,16 @@
   letter-spacing: var(--tracking-wide);
   text-align: center;
   margin-top: var(--space-2);
+  transition: color 0.3s ease;
+}
+
+.story-photo-card:hover + .story-photo-caption,
+.story-image-figure:hover .story-photo-caption {
+  color: var(--rose-dark);
 }
 
 /* ==========================================================================
-   7. REFINED TEXT CARD (COMPACT 530px MAX WIDTH, COMFORTABLE PADDING)
+   7. REFINED TEXT CARD WITH EDITORIAL HOVER PHYSICS
    ========================================================================== */
 
 .editorial-text-panel {
@@ -208,15 +213,15 @@
   text-align: left;
   position: relative;
   box-sizing: border-box;
-  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-slow);
+  transition: border-color 0.4s ease, box-shadow 0.6s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .editorial-text-panel:hover {
-  border-color: var(--rose);
-  transform: translateY(-2px);
+  border-color: rgba(216, 175, 164, 0.6);
+  transform: translateY(-4px);
   box-shadow: 
-    0 8px 22px -2px rgba(74, 59, 50, 0.05),
-    0 18px 40px -8px rgba(143, 91, 83, 0.08);
+    0 12px 28px -2px rgba(74, 59, 50, 0.06),
+    0 24px 50px -8px rgba(143, 91, 83, 0.1);
 }
 
 @media (min-width: 640px) {
@@ -227,60 +232,69 @@
 
 @media (min-width: 1024px) {
   .editorial-text-panel {
-    padding: 44px 40px; /* Reduced from 55-65px to comfortable 44px */
+    padding: 44px 40px;
   }
 }
 
 /* 8. Chapter Roman Numeral */
 .story-roman-numeral {
   font-family: var(--font-serif);
-  font-size: 1.05rem; /* ~17px */
+  font-size: 1.05rem;
   font-weight: 500;
   letter-spacing: var(--tracking-wider);
   color: var(--rose-dark);
   margin-bottom: var(--space-1);
   display: inline-block;
   opacity: 0.9;
+  transition: transform 0.4s ease;
+}
+
+.editorial-text-panel:hover .story-roman-numeral {
+  transform: translateX(2px);
 }
 
 /* 9. Chapter Headings */
 .story-subheading {
   font-family: var(--font-serif);
-  font-size: clamp(1.6rem, 2.2vw, 2.05rem); /* ~32-34px desktop */
+  font-size: clamp(1.6rem, 2.2vw, 2.05rem);
   font-weight: 400;
   color: var(--warm-brown-dark);
-  letter-spacing: -0.01em;
-  margin-bottom: var(--space-3);
   line-height: 1.25;
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.01em;
 }
 
-/* 10. Script Quote */
+/* 10. Calligraphy Quotes */
 .story-calligraphy-quote {
-  font-family: var(--font-script);
-  font-size: clamp(1.4rem, 2.1vw, 1.75rem); /* ~26-28px desktop */
-  line-height: 1.35;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
   color: var(--rose-dark);
+  line-height: 1.5;
   margin: 0 0 var(--space-4) 0;
   padding-bottom: var(--space-3);
   border-bottom: 1px solid var(--hairline);
   width: 100%;
+  transition: color 0.4s ease, border-bottom-color 0.4s ease;
+}
+
+.editorial-text-panel:hover .story-calligraphy-quote {
+  color: #7A423B;
+  border-bottom-color: rgba(216, 175, 164, 0.4);
 }
 
 /* 11. Body Text */
 .story-narrative-paragraph {
   font-family: var(--font-sans);
-  font-size: 0.9375rem; /* 15px */
+  font-size: var(--text-base);
   font-weight: 300;
   line-height: 1.75;
-  color: var(--warm-brown);
+  color: var(--muted-text);
   max-width: 420px;
   margin: 0;
 }
 
-/* ==========================================================================
-   15. MOBILE & TABLET RESPONSIVENESS
-   ========================================================================== */
-
+/* Mobile & Tablet Responsiveness */
 @media (max-width: 859px) {
   .story-block {
     gap: var(--space-6);

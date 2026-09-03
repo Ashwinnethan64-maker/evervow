@@ -1,5 +1,6 @@
 /* ==========================================================================
    SITE NAVIGATION COMPONENT
+   Initial Entrance Animation (opacity: 0, translateY: -10px) -> (1, 0)
    Dynamic Background: Exact soft blush-pink (#FCE9E8) on Hero -> Light Cream/White when scrolled
    ========================================================================== */
 
@@ -9,7 +10,21 @@
   left: 0;
   width: 100%;
   z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: navEntrance 0.85s cubic-bezier(0.22, 0.61, 0.36, 1) 0.1s forwards;
   transition: background 0.4s var(--ease-luxury), background-color 0.4s var(--ease-luxury), border-color 0.4s var(--ease-luxury), box-shadow 0.4s var(--ease-luxury);
+}
+
+@keyframes navEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* 1. At Top / Over Hero Section: Exact Soft Blush-Pink (#FCE9E8) matching the top of Hero */
@@ -72,7 +87,8 @@
   color: var(--warm-brown);
   padding: var(--space-1) 0;
   position: relative;
-  transition: color 0.2s ease;
+  transition: color 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.3s ease;
+  display: inline-block;
 }
 
 .nav-link::after {
@@ -83,10 +99,14 @@
   width: 0;
   height: 1px;
   background-color: var(--rose-dark);
-  transition: width 0.2s ease, left 0.2s ease;
+  transition: width 0.35s cubic-bezier(0.22, 0.61, 0.36, 1), left 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-.nav-link:hover,
+.nav-link:hover {
+  color: var(--warm-brown-dark);
+  transform: translateY(-1px);
+}
+
 .nav-link.nav-link-active {
   color: var(--warm-brown-dark);
 }
@@ -173,5 +193,13 @@
 
   .nav-link {
     font-size: var(--text-sm);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-navigation {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
   }
 }

@@ -10,11 +10,13 @@ import { Gallery } from './components/sections/Gallery';
 import { RSVP } from './components/sections/RSVP';
 import { Guestbook } from './components/sections/Guestbook';
 import { Footer } from './components/layout/Footer';
+import { AmbientBackground } from './components/common/AmbientBackground';
 import './styles/global.css';
 
 function App() {
   return (
     <div className="site-wrapper">
+      <AmbientBackground />
       <Navigation />
       <main id="main-content">
         <Hero />

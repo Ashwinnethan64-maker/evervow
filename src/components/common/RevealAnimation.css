@@ -1,13 +1,139 @@
 /* ==========================================================================
-   MOTION SYSTEM — ALL ANIMATIONS REMOVED
-   Clean, instant static rendering for all elements
+   EDITORIAL MOTION SYSTEM — LUXURY WEDDING INVITATION ANIMATION ENGINE
+   Silky, high-end cubic-bezier(0.22, 0.61, 0.36, 1) transitions
    ========================================================================== */
 
-.pro-reveal,
+:root {
+  --ease-cinematic: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Base Initial State for Reveal Elements */
 .reveal-wrapper {
-  opacity: 1 !important;
-  transform: none !important;
-  filter: none !important;
-  transition: none !important;
-  animation: none !important;
+  opacity: 0;
+  will-change: transform, opacity, filter;
+  transition-property: transform, opacity, filter;
+  transition-duration: var(--reveal-duration, 850ms);
+  transition-timing-function: var(--ease-cinematic);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* 1. Standard Fade-Up (Headings, Paragraphs, Buttons, Eyebrows) */
+.reveal-wrapper.anim-fade-up {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(26px);
+}
+
+.reveal-wrapper.anim-fade-up.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* 2. Soft Ambient Fade-In */
+.reveal-wrapper.anim-fade-in {
+  opacity: 0;
+  filter: blur(4px);
+  transform: none;
+}
+
+.reveal-wrapper.anim-fade-in.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: none;
+}
+
+/* 3. Card Reveal (Physical cards, text panels, countdown units, form cards) */
+.reveal-wrapper.anim-card-reveal {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(32px) scale(0.985);
+  transition-duration: var(--reveal-duration, 950ms);
+}
+
+.reveal-wrapper.anim-card-reveal.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+}
+
+/* 4. Image Reveal (Photographs, Venue banner, Gallery compositions) */
+.reveal-wrapper.anim-image-reveal {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(30px) scale(0.98);
+  transition-duration: var(--reveal-duration, 1100ms);
+}
+
+.reveal-wrapper.anim-image-reveal.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+}
+
+/* 5. Scale-Up (Brand Logos, Monograms, Icons) */
+.reveal-wrapper.anim-scale-up {
+  opacity: 0;
+  filter: blur(6px);
+  transform: scale(0.92);
+  transition-duration: var(--reveal-duration, 850ms);
+}
+
+.reveal-wrapper.anim-scale-up.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* 6. Typography Script Reveal (Calligraphy names & quotes) */
+.reveal-wrapper.anim-text-reveal {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(20px);
+  transition-duration: var(--reveal-duration, 900ms);
+}
+
+.reveal-wrapper.anim-text-reveal.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* Mobile: Controlled translation distances for fluid touch performance */
+@media (max-width: 768px) {
+  .reveal-wrapper.anim-fade-up {
+    transform: translateY(18px);
+    filter: blur(4px);
+  }
+
+  .reveal-wrapper.anim-card-reveal {
+    transform: translateY(20px) scale(0.985);
+    filter: blur(4px);
+  }
+
+  .reveal-wrapper.anim-image-reveal {
+    transform: translateY(20px) scale(0.98);
+    filter: blur(6px);
+  }
+
+  .reveal-wrapper.anim-text-reveal {
+    transform: translateY(14px);
+  }
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-wrapper,
+  .reveal-wrapper.anim-fade-up,
+  .reveal-wrapper.anim-fade-in,
+  .reveal-wrapper.anim-card-reveal,
+  .reveal-wrapper.anim-image-reveal,
+  .reveal-wrapper.anim-scale-up,
+  .reveal-wrapper.anim-text-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
 }
