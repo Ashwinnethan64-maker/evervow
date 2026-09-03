@@ -3,7 +3,6 @@ import { weddingData } from '../../config/weddingData';
 import { Eyebrow } from '../common/Eyebrow';
 import { Divider } from '../common/Divider';
 import { RevealAnimation } from '../common/RevealAnimation';
-import { AttireGuide } from './AttireGuide';
 import './Venue.css';
 
 export const Venue = () => {
@@ -200,9 +199,6 @@ export const Venue = () => {
             </div>
           </div>
         )}
-
-        {/* 4. Dress Code & Attire Palette Visual Guide */}
-        <AttireGuide />
 
       </div>
     </section>
