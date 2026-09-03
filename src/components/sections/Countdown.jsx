@@ -78,15 +78,13 @@ export const Countdown = () => {
             {units.map((unit, idx) => (
               <RevealAnimation
                 key={unit.label}
-                animation="fade-up"
+                animation="card-reveal"
                 delay={150 + idx * 100}
                 duration={750}
-                className="countdown-unit-anim-wrapper"
+                className="countdown-unit-card"
               >
-                <div className="countdown-unit-card">
-                  <span className="unit-number">{String(unit.value).padStart(2, '0')}</span>
-                  <span className="unit-label">{unit.label}</span>
-                </div>
+                <span className="unit-number" key={unit.value}>{String(unit.value).padStart(2, '0')}</span>
+                <span className="unit-label">{unit.label}</span>
               </RevealAnimation>
             ))}
           </div>

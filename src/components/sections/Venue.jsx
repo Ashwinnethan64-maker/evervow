@@ -48,76 +48,72 @@ export const Venue = () => {
         <div className="venue-editorial-grid">
           
           {/* Left Column: Venue Information Card */}
-          <div className="venue-grid-col">
-            <RevealAnimation animation="card-reveal" delay={200} duration={850} className="venue-card-animation-wrapper">
-              <div className="venue-info-card">
-                <div className="venue-info-card-inner">
-                  
-                  {/* Address Group */}
-                  <div className="venue-detail-group">
-                    <span className="venue-sublabel">ADDRESS</span>
-                    <h3 className="venue-name-heading">{venue.name}</h3>
-                    <p className="venue-city-text">{venue.city}, {venue.state}</p>
-                  </div>
-
-                  <div className="venue-card-divider" aria-hidden="true" />
-
-                  {/* Event Timing Group */}
-                  <div className="venue-detail-group">
-                    <span className="venue-sublabel">EVENT TIMING</span>
-                    <p className="timing-value">{venue.timingDisplay}</p>
-                  </div>
-
-                  {/* Get Directions Button */}
-                  <div className="venue-action-wrapper">
-                    <a
-                      href={venue.mapsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="venue-directions-btn"
-                      aria-label={`Get directions to ${venue.name} ${venue.city}`}
-                    >
-                      GET DIRECTIONS
-                    </a>
-                  </div>
-
+          <RevealAnimation animation="card-reveal" delay={200} duration={850} className="venue-grid-col">
+            <div className="venue-info-card">
+              <div className="venue-info-card-inner">
+                
+                {/* Address Group */}
+                <div className="venue-detail-group">
+                  <span className="venue-sublabel">ADDRESS</span>
+                  <h3 className="venue-name-heading">{venue.name}</h3>
+                  <p className="venue-city-text">{venue.city}, {venue.state}</p>
                 </div>
-              </div>
-            </RevealAnimation>
-          </div>
 
-          {/* Right Column: Google Maps Interactive Embed Card */}
-          <div className="venue-grid-col">
-            <RevealAnimation animation="card-reveal" delay={320} duration={850} className="venue-card-animation-wrapper">
-              <div className="venue-map-card">
-                <div className="venue-map-card-inner">
-                  
-                  {/* Top-Left 'Open in Maps' floating button */}
+                <div className="venue-card-divider" aria-hidden="true" />
+
+                {/* Event Timing Group */}
+                <div className="venue-detail-group">
+                  <span className="venue-sublabel">EVENT TIMING</span>
+                  <p className="timing-value">{venue.timingDisplay}</p>
+                </div>
+
+                {/* Get Directions Button */}
+                <div className="venue-action-wrapper">
                   <a
                     href={venue.mapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="open-in-maps-overlay-btn"
-                    aria-label={`Open ${venue.name} in Google Maps`}
+                    className="venue-directions-btn"
+                    aria-label={`Get directions to ${venue.name} ${venue.city}`}
                   >
-                    <span>OPEN IN MAPS</span>
-                    <span className="arrow-icon">↗</span>
+                    GET DIRECTIONS
                   </a>
-
-                  {/* Google Maps Embed iframe */}
-                  <iframe
-                    title="Google Maps Location for Woodrose Belgaum"
-                    src={venue.embedMapUrl}
-                    className="venue-map-iframe"
-                    loading="lazy"
-                    allowFullScreen
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-
                 </div>
+
               </div>
-            </RevealAnimation>
-          </div>
+            </div>
+          </RevealAnimation>
+
+          {/* Right Column: Google Maps Interactive Embed Card */}
+          <RevealAnimation animation="card-reveal" delay={320} duration={850} className="venue-grid-col">
+            <div className="venue-map-card">
+              <div className="venue-map-card-inner">
+                
+                {/* Top-Left 'Open in Maps' floating button */}
+                <a
+                  href={venue.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="open-in-maps-overlay-btn"
+                  aria-label={`Open ${venue.name} in Google Maps`}
+                >
+                  <span>OPEN IN MAPS</span>
+                  <span className="arrow-icon">↗</span>
+                </a>
+
+                {/* Google Maps Embed iframe */}
+                <iframe
+                  title="Google Maps Location for Woodrose Belgaum"
+                  src={venue.embedMapUrl}
+                  className="venue-map-iframe"
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+
+              </div>
+            </div>
+          </RevealAnimation>
 
         </div>
 
@@ -131,12 +127,10 @@ export const Venue = () => {
                   animation="fade-up"
                   delay={420 + iIdx * 100}
                   duration={750}
-                  className="additional-info-anim-wrapper"
+                  className="additional-info-col"
                 >
-                  <div className="additional-info-col">
-                    <span className="additional-info-label">{key.toUpperCase()}</span>
-                    <p className="additional-info-text">{text}</p>
-                  </div>
+                  <span className="additional-info-label">{key.toUpperCase()}</span>
+                  <p className="additional-info-text">{text}</p>
                 </RevealAnimation>
               ))}
             </div>

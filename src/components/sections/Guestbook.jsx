@@ -144,15 +144,14 @@ export const Guestbook = () => {
                 animation="card-reveal"
                 delay={200 + wIdx * 120}
                 duration={800}
-                className="wish-card-anim-wrapper"
+                className="handwritten-paper-card"
+                as="article"
               >
-                <article className="handwritten-paper-card">
-                  <span className="note-mini-flourish">❦</span>
-                  <blockquote className="note-script-quote">
-                    “{item.wish}”
-                  </blockquote>
-                  <cite className="note-author-label">— {item.name.toUpperCase()}</cite>
-                </article>
+                <span className="note-mini-flourish">❦</span>
+                <blockquote className="note-script-quote">
+                  “{item.wish}”
+                </blockquote>
+                <cite className="note-author-label">— {item.name.toUpperCase()}</cite>
               </RevealAnimation>
             ))}
           </div>

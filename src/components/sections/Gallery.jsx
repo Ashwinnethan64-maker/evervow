@@ -69,32 +69,30 @@ export const Gallery = () => {
             
             {/* 1. Left Tall Feature (0ms delay, 900ms image-reveal) */}
             {img1 && (
-              <div className="gallery-left-feature-col">
-                <RevealAnimation animation="image-reveal" duration={900} delay={0}>
-                  <div className="gallery-card-frame gallery-tall-feature-frame">
-                    <button
-                      ref={(el) => (triggerElementsRef.current[img1.id] = el)}
-                      type="button"
-                      className="gallery-thumbnail-btn"
-                      onClick={() => openLightbox(0)}
-                      aria-label={`View photo: ${img1.alt}`}
-                    >
-                      <img
-                        src={img1.src}
-                        alt={img1.alt}
-                        className="gallery-photo-img"
-                        loading="eager"
-                      />
-                      <div className="thumbnail-hover-overlay" aria-hidden="true">
-                        <span className="hover-expand-icon">⤢</span>
-                        {img1.caption && (
-                          <span className="hover-caption">{img1.caption}</span>
-                        )}
-                      </div>
-                    </button>
-                  </div>
-                </RevealAnimation>
-              </div>
+              <RevealAnimation animation="image-reveal" duration={900} delay={0} className="gallery-left-feature-col">
+                <div className="gallery-card-frame gallery-tall-feature-frame">
+                  <button
+                    ref={(el) => (triggerElementsRef.current[img1.id] = el)}
+                    type="button"
+                    className="gallery-thumbnail-btn"
+                    onClick={() => openLightbox(0)}
+                    aria-label={`View photo: ${img1.alt}`}
+                  >
+                    <img
+                      src={img1.src}
+                      alt={img1.alt}
+                      className="gallery-photo-img"
+                      loading="eager"
+                    />
+                    <div className="thumbnail-hover-overlay" aria-hidden="true">
+                      <span className="hover-expand-icon">⤢</span>
+                      {img1.caption && (
+                        <span className="hover-caption">{img1.caption}</span>
+                      )}
+                    </div>
+                  </button>
+                </div>
+              </RevealAnimation>
             )}
 
             {/* Right Column: 2 Small Squares (120ms, 220ms) + 1 Wide Venue Card (340ms) */}
@@ -103,92 +101,86 @@ export const Gallery = () => {
               {/* Row of 2 Small Cards */}
               <div className="gallery-two-squares-row">
                 {img2 && (
-                  <div className="gallery-square-item">
-                    <RevealAnimation animation="image-reveal" duration={850} delay={120}>
-                      <div className="gallery-card-frame gallery-square-frame">
-                        <button
-                          ref={(el) => (triggerElementsRef.current[img2.id] = el)}
-                          type="button"
-                          className="gallery-thumbnail-btn"
-                          onClick={() => openLightbox(1)}
-                          aria-label={`View photo: ${img2.alt}`}
-                        >
-                          <img
-                            src={img2.src}
-                            alt={img2.alt}
-                            className="gallery-photo-img"
-                            loading="lazy"
-                          />
-                          <div className="thumbnail-hover-overlay" aria-hidden="true">
-                            <span className="hover-expand-icon">⤢</span>
-                            {img2.caption && (
-                              <span className="hover-caption">{img2.caption}</span>
-                            )}
-                          </div>
-                        </button>
-                      </div>
-                    </RevealAnimation>
-                  </div>
-                )}
-
-                {img3 && (
-                  <div className="gallery-square-item">
-                    <RevealAnimation animation="image-reveal" duration={850} delay={220}>
-                      <div className="gallery-card-frame gallery-square-frame">
-                        <button
-                          ref={(el) => (triggerElementsRef.current[img3.id] = el)}
-                          type="button"
-                          className="gallery-thumbnail-btn"
-                          onClick={() => openLightbox(2)}
-                          aria-label={`View photo: ${img3.alt}`}
-                        >
-                          <img
-                            src={img3.src}
-                            alt={img3.alt}
-                            className="gallery-photo-img"
-                            loading="lazy"
-                          />
-                          <div className="thumbnail-hover-overlay" aria-hidden="true">
-                            <span className="hover-expand-icon">⤢</span>
-                            {img3.caption && (
-                              <span className="hover-caption">{img3.caption}</span>
-                            )}
-                          </div>
-                        </button>
-                      </div>
-                    </RevealAnimation>
-                  </div>
-                )}
-              </div>
-
-              {/* Wide Venue Card (340ms) */}
-              {img4 && (
-                <div className="gallery-venue-wide-item">
-                  <RevealAnimation animation="image-reveal" duration={850} delay={340}>
-                    <div className="gallery-card-frame gallery-venue-wide-frame">
+                  <RevealAnimation animation="image-reveal" duration={850} delay={120} className="gallery-square-item">
+                    <div className="gallery-card-frame gallery-square-frame">
                       <button
-                        ref={(el) => (triggerElementsRef.current[img4.id] = el)}
+                        ref={(el) => (triggerElementsRef.current[img2.id] = el)}
                         type="button"
                         className="gallery-thumbnail-btn"
-                        onClick={() => openLightbox(3)}
-                        aria-label={`View photo: ${img4.alt}`}
+                        onClick={() => openLightbox(1)}
+                        aria-label={`View photo: ${img2.alt}`}
                       >
                         <img
-                          src={img4.src}
-                          alt={img4.alt}
+                          src={img2.src}
+                          alt={img2.alt}
                           className="gallery-photo-img"
                           loading="lazy"
                         />
                         <div className="thumbnail-hover-overlay" aria-hidden="true">
                           <span className="hover-expand-icon">⤢</span>
-                          {img4.caption && (
-                            <span className="hover-caption">{img4.caption}</span>
+                          {img2.caption && (
+                            <span className="hover-caption">{img2.caption}</span>
                           )}
                         </div>
                       </button>
                     </div>
                   </RevealAnimation>
-                </div>
+                )}
+
+                {img3 && (
+                  <RevealAnimation animation="image-reveal" duration={850} delay={220} className="gallery-square-item">
+                    <div className="gallery-card-frame gallery-square-frame">
+                      <button
+                        ref={(el) => (triggerElementsRef.current[img3.id] = el)}
+                        type="button"
+                        className="gallery-thumbnail-btn"
+                        onClick={() => openLightbox(2)}
+                        aria-label={`View photo: ${img3.alt}`}
+                      >
+                        <img
+                          src={img3.src}
+                          alt={img3.alt}
+                          className="gallery-photo-img"
+                          loading="lazy"
+                        />
+                        <div className="thumbnail-hover-overlay" aria-hidden="true">
+                          <span className="hover-expand-icon">⤢</span>
+                          {img3.caption && (
+                            <span className="hover-caption">{img3.caption}</span>
+                          )}
+                        </div>
+                      </button>
+                    </div>
+                  </RevealAnimation>
+                )}
+              </div>
+
+              {/* Wide Venue Card (340ms) */}
+              {img4 && (
+                <RevealAnimation animation="image-reveal" duration={850} delay={340} className="gallery-venue-wide-item">
+                  <div className="gallery-card-frame gallery-venue-wide-frame">
+                    <button
+                      ref={(el) => (triggerElementsRef.current[img4.id] = el)}
+                      type="button"
+                      className="gallery-thumbnail-btn"
+                      onClick={() => openLightbox(3)}
+                      aria-label={`View photo: ${img4.alt}`}
+                    >
+                      <img
+                        src={img4.src}
+                        alt={img4.alt}
+                        className="gallery-photo-img"
+                        loading="lazy"
+                      />
+                      <div className="thumbnail-hover-overlay" aria-hidden="true">
+                        <span className="hover-expand-icon">⤢</span>
+                        {img4.caption && (
+                          <span className="hover-caption">{img4.caption}</span>
+                        )}
+                      </div>
+                    </button>
+                  </div>
+                </RevealAnimation>
               )}
 
             </div>
@@ -197,32 +189,30 @@ export const Gallery = () => {
 
           {/* Bottom Full-Width Wide Artwork: Sunset Couple (460ms delay, 1050ms duration) */}
           {img5 && (
-            <div className="gallery-bottom-wide-block">
-              <RevealAnimation animation="image-reveal" duration={1050} delay={460}>
-                <div className="gallery-card-frame gallery-bottom-panoramic-frame">
-                  <button
-                    ref={(el) => (triggerElementsRef.current[img5.id] = el)}
-                    type="button"
-                    className="gallery-thumbnail-btn"
-                    onClick={() => openLightbox(4)}
-                    aria-label={`View photo: ${img5.alt}`}
-                  >
-                    <img
-                      src={img5.src}
-                      alt={img5.alt}
-                      className="gallery-photo-img"
-                      loading="lazy"
-                    />
-                    <div className="thumbnail-hover-overlay" aria-hidden="true">
-                      <span className="hover-expand-icon">⤢</span>
-                      {img5.caption && (
-                        <span className="hover-caption">{img5.caption}</span>
-                      )}
-                    </div>
-                  </button>
-                </div>
-              </RevealAnimation>
-            </div>
+            <RevealAnimation animation="image-reveal" duration={1050} delay={460} className="gallery-bottom-wide-block">
+              <div className="gallery-card-frame gallery-bottom-panoramic-frame">
+                <button
+                  ref={(el) => (triggerElementsRef.current[img5.id] = el)}
+                  type="button"
+                  className="gallery-thumbnail-btn"
+                  onClick={() => openLightbox(4)}
+                  aria-label={`View photo: ${img5.alt}`}
+                >
+                  <img
+                    src={img5.src}
+                    alt={img5.alt}
+                    className="gallery-photo-img"
+                    loading="lazy"
+                  />
+                  <div className="thumbnail-hover-overlay" aria-hidden="true">
+                    <span className="hover-expand-icon">⤢</span>
+                    {img5.caption && (
+                      <span className="hover-caption">{img5.caption}</span>
+                    )}
+                  </div>
+                </button>
+              </div>
+            </RevealAnimation>
           )}
 
         </div>
