@@ -8,7 +8,7 @@ import './Hero.css';
 export const Hero = () => {
   const { couple, hero } = weddingData;
 
-  const renderAnimatedLetters = (text, startDelay = 320) => {
+  const renderAnimatedLetters = (text, startDelay = 380) => {
     return text.split('').map((char, index) => (
       <span
         key={index}
@@ -26,13 +26,13 @@ export const Hero = () => {
     <section id="hero" className="hero-section" aria-label="Wedding Opening Invitation">
       <div className="section-container-narrow hero-inner-container">
         
-        {/* Step 1: Couple Brand Logo Emblem (0.05s) */}
-        <RevealAnimation animation="scale-up" duration={950} delay={50} className="hero-monogram-block">
-          <BrandLogo size="lg" />
-        </RevealAnimation>
+        {/* Step 1: Couple Brand Logo Emblem with Dedicated Luxury Entrance Animation */}
+        <div className="hero-monogram-block">
+          <BrandLogo size="lg" className="hero-opening-logo" />
+        </div>
 
-        {/* Step 2: "TOGETHER WITH OUR FAMILIES" (0.18s) */}
-        <RevealAnimation animation="fade-up" duration={800} delay={180} className="hero-eyebrow-block">
+        {/* Step 2: "TOGETHER WITH OUR FAMILIES" (0.24s) */}
+        <RevealAnimation animation="fade-up" duration={800} delay={240} className="hero-eyebrow-block">
           <span className="hero-eyebrow-text">{hero.eyebrow}</span>
         </RevealAnimation>
 
@@ -40,35 +40,35 @@ export const Hero = () => {
         <div className="hero-names-architecture">
           <div className="hero-name-item">
             <h1 className="hero-script-name hero-name-groom" aria-label={couple.groom.firstName}>
-              {renderAnimatedLetters(couple.groom.firstName, 300)}
+              {renderAnimatedLetters(couple.groom.firstName, 380)}
             </h1>
           </div>
 
-          <RevealAnimation animation="scale-up" duration={700} delay={460} className="hero-joiner-item">
+          <RevealAnimation animation="scale-up" duration={700} delay={520} className="hero-joiner-item">
             <span className="hero-joiner-text">{hero.scriptJoiner}</span>
           </RevealAnimation>
 
           <div className="hero-name-item">
             <h1 className="hero-script-name hero-name-bride" aria-label={couple.bride.firstName}>
-              {renderAnimatedLetters(couple.bride.firstName, 560)}
+              {renderAnimatedLetters(couple.bride.firstName, 620)}
             </h1>
           </div>
         </div>
 
         {/* Small delicate star divider beneath couple names */}
-        <RevealAnimation animation="scale-up" duration={700} delay={660} className="hero-divider-block">
+        <RevealAnimation animation="scale-up" duration={700} delay={720} className="hero-divider-block">
           <Divider symbol="star" className="hero-star-divider" />
         </RevealAnimation>
 
         {/* Step 4: Secondary Wedding Information */}
-        <RevealAnimation animation="fade-up" duration={850} delay={760} className="hero-details-block">
+        <RevealAnimation animation="fade-up" duration={850} delay={820} className="hero-details-block">
           <span className="hero-save-date-label">{hero.tagline}</span>
           <p className="hero-date-line">{hero.date}</p>
           <p className="hero-location-line">{hero.location}</p>
         </RevealAnimation>
 
         {/* Step 5: Seamlessly Integrated Couple Wedding Photograph with 9s Breathing Animation */}
-        <RevealAnimation animation="image-reveal" duration={1100} delay={880} className="hero-photograph-block">
+        <RevealAnimation animation="image-reveal" duration={1100} delay={920} className="hero-photograph-block">
           <div className="hero-integrated-photo-container">
             <div className="photo-blend-top-overlay" aria-hidden="true" />
             <img
@@ -87,7 +87,7 @@ export const Hero = () => {
         </RevealAnimation>
 
         {/* Step 6: Ceremonial Scroll Indicator */}
-        <RevealAnimation animation="fade-up" duration={900} delay={1000} className="hero-scroll-block">
+        <RevealAnimation animation="fade-up" duration={900} delay={1050} className="hero-scroll-block">
           <a href="#story" className="hero-scroll-link" aria-label="Scroll to continue exploring">
             <span className="hero-scroll-caption">{hero.scrollHint}</span>
             <div className="hero-scroll-line-wrapper" aria-hidden="true">
