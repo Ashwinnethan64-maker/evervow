@@ -162,11 +162,5 @@
   }
 }
 
-/* Accessibility: Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  .lightbox-overlay,
-  .lightbox-image {
-    animation: none !important;
-    transition: none !important;
-  }
-}
+
+

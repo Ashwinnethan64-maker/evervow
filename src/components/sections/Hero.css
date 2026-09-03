@@ -340,22 +340,5 @@
   }
 }
 
-/* Accessibility: Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  .hero-letter {
-    opacity: 1 !important;
-    filter: none !important;
-    transform: none !important;
-    animation: none !important;
-  }
 
-  .hero-breathing-photo {
-    animation: none !important;
-    transform: none !important;
-  }
 
-  .hero-scroll-indicator-line {
-    animation: none !important;
-    transform: none !important;
-  }
-}

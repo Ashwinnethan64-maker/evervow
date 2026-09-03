@@ -292,11 +292,5 @@
   letter-spacing: var(--tracking-wide);
 }
 
-/* Accessibility: Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  .foil-shimmer-reflection,
-  .particle {
-    display: none !important;
-    animation: none !important;
-  }
-}
+
+

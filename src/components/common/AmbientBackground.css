@@ -138,9 +138,5 @@
   }
 }
 
-/* Accessibility: Respect Reduced Motion Preferences */
-@media (prefers-reduced-motion: reduce) {
-  .ambient-motion-container {
-    display: none !important;
-  }
-}
+
+

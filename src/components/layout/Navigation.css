@@ -196,10 +196,5 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .site-navigation {
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
-  }
-}
+
+

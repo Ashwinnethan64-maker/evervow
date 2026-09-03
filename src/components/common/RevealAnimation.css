@@ -120,20 +120,3 @@
     transform: translateY(14px);
   }
 }
-
-/* Accessibility: Respect Reduced Motion Preferences */
-@media (prefers-reduced-motion: reduce) {
-  .reveal-wrapper,
-  .reveal-wrapper.anim-fade-up,
-  .reveal-wrapper.anim-fade-in,
-  .reveal-wrapper.anim-card-reveal,
-  .reveal-wrapper.anim-image-reveal,
-  .reveal-wrapper.anim-scale-up,
-  .reveal-wrapper.anim-text-reveal {
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-    transition: none !important;
-    animation: none !important;
-  }
-}

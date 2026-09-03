@@ -20,26 +20,25 @@ export const RevealAnimation = ({
   duration,
   className = '',
   as: Component = 'div',
-  threshold = 0.1,
+  threshold = 0.08,
   ...props
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef(null);
 
   useEffect(() => {
-    // Respect reduced motion immediately
-    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setIsVisible(true);
-      return;
-    }
-
     const currentEl = elementRef.current;
     if (!currentEl) return;
 
-    // Check if element is already inside the viewport on initial load
+    // Check if element is already inside or near viewport on mount
     const rect = currentEl.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
+    if (rect.top < window.innerHeight + 50 && rect.bottom > 0) {
       setIsVisible(true);
+    }
+
+    if (typeof IntersectionObserver === 'undefined') {
+      setIsVisible(true);
+      return;
     }
 
     const observer = new IntersectionObserver(
@@ -51,7 +50,7 @@ export const RevealAnimation = ({
       },
       {
         threshold: threshold,
-        rootMargin: '0px 0px -30px 0px'
+        rootMargin: '0px 0px -20px 0px'
       }
     );
 
