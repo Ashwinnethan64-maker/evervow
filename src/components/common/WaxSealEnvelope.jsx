@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { weddingData } from '../../config/weddingData';
 import './WaxSealEnvelope.css';
 
@@ -14,12 +14,35 @@ export const WaxSealEnvelope = ({ onUnseal }) => {
   const [isDismissed, setIsDismissed] = useState(false);
   const { couple } = weddingData;
 
+  useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
+    // Lock background scrolling while envelope overlay is visible
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, []);
+
   const handleOpen = () => {
     if (isOpening || isDismissed) return;
     setIsOpening(true);
 
+    // Scroll to top immediately when opening
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (window.location.hash) {
+      history.replaceState(null, null, window.location.pathname + window.location.search);
+    }
+
     setTimeout(() => {
       setIsDismissed(true);
+      document.body.style.overflow = '';
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       if (onUnseal) onUnseal();
     }, 950);
   };
