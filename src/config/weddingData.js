@@ -6,7 +6,12 @@
  * Venue: Woodrose, Belgaum, Karnataka
  */
 
+// Central Shared Album Destination URL
+// Both QR Code generator and "OPEN SHARED ALBUM" consume this single source of truth.
+export const SHARED_ALBUM_URL = "https://photos.app.goo.gl/u5K84n6p1f3QxK5t8";
+
 export const weddingData = {
+
   couple: {
     groom: {
       firstName: "Ash",
@@ -119,6 +124,55 @@ export const weddingData = {
     completedMessage: "The celebration has begun! Thank you for being with us."
   },
 
+  attire: {
+    eyebrow: "ATTIRE & COLOR PALETTE",
+    title: "Dress Code & Harmony",
+    description: "We invite you to dress in elegant Indian traditional, festive formal, or cocktail attire. If you wish to harmonize with our evening, here are our celebration hues:",
+    palette: [
+      { name: "Pastel Rose", hex: "#E8C2BC", note: "Romantic warmth" },
+      { name: "Champagne Gold", hex: "#D4AF37", note: "Festive glow" },
+      { name: "Warm Ivory", hex: "#FAF8F5", note: "Classic grace" },
+      { name: "Earthy Sage", hex: "#9EAC9C", note: "Serene garden" }
+    ]
+  },
+
+  travelConcierge: {
+    transit: [
+      {
+        title: "By Air",
+        detail: "Belgaum Airport (IXG) Sambra is 22 mins (14 km) from Woodrose. Daily connecting flights from Bangalore, Mumbai & Delhi. Hubli Airport (HBX) is 95 km away."
+      },
+      {
+        title: "By Train",
+        detail: "Belagavi Railway Station (BGM) is centrally situated 6 km from Woodrose with direct express trains from Bangalore, Pune, Mumbai & Goa."
+      },
+      {
+        title: "Valet & Parking",
+        detail: "Dedicated complimentary valet parking will be available at the Woodrose grand entrance for all guests."
+      }
+    ],
+    stays: [
+      {
+        name: "Fairfield by Marriott Belagavi",
+        rating: "5 Star Luxury",
+        distance: "12 mins from venue",
+        phone: "+91 831 240 8000"
+      },
+      {
+        name: "Native By Chancery Hotels",
+        rating: "Boutique Heritage",
+        distance: "10 mins from venue",
+        phone: "+91 831 247 7777"
+      },
+      {
+        name: "Hotel UK 27 The Fern",
+        rating: "Eco-Luxury Stay",
+        distance: "15 mins from venue",
+        phone: "+91 831 427 2727"
+      }
+    ]
+  },
+
   venue: {
     eyebrow: "LOCATION & TRAVEL",
     title: "Woodrose, Belgaum",
@@ -135,6 +189,13 @@ export const weddingData = {
       attire: "Traditional Indian / Formal Evening Wear",
       airport: "Belgaum Airport (IXG) is approximately 25 minutes from the venue."
     }
+  },
+
+  photoDrop: {
+    title: "Share Your Wedding Memories",
+    subtitle: "Capture a candid photo or video during the evening? Drop them directly into our keepsake album for Ash & Sakshi to cherish forever.",
+    albumUrl: SHARED_ALBUM_URL,
+    qrHint: "Scan with your phone camera to open the shared album"
   },
 
   gallery: {

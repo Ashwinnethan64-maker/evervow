@@ -1,0 +1,290 @@
+/* ==========================================================================
+   WAX SEAL ENVELOPE OPENER — LUXURY PHYSICAL WEDDING INVITATION
+   Flawless spacing, zero overlap, debossed 3D rose/terracotta wax seal
+   ========================================================================== */
+
+.wax-seal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: radial-gradient(circle at 50% 40%, rgba(255, 252, 249, 0.98) 0%, rgba(247, 238, 233, 0.97) 60%, rgba(234, 220, 214, 0.95) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  padding: var(--space-4);
+  transition: opacity 0.85s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.85s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.85s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.wax-seal-overlay.is-opening {
+  opacity: 0;
+  transform: scale(1.06);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+/* Luxury Envelope Card */
+.wax-envelope-card {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  min-height: 480px;
+  background: linear-gradient(145deg, #FFFFFF 0%, #FAF6F1 50%, #F5EDE6 100%);
+  border: 1px solid rgba(216, 175, 164, 0.55);
+  border-radius: 24px;
+  box-shadow: 
+    0 24px 60px -12px rgba(143, 91, 83, 0.2),
+    0 10px 24px -6px rgba(143, 91, 83, 0.12),
+    inset 0 0 45px rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 44px 28px 36px;
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  overflow: hidden;
+}
+
+.wax-envelope-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 
+    0 32px 75px -12px rgba(143, 91, 83, 0.26),
+    0 14px 30px -5px rgba(143, 91, 83, 0.14);
+}
+
+/* Envelope Flap Accent Lines */
+.envelope-top-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 42%;
+  border-bottom: 1px solid rgba(216, 175, 164, 0.35);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, rgba(247, 238, 232, 0.25) 100%);
+  border-top-left-radius: 23px;
+  border-top-right-radius: 23px;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Top Information */
+.envelope-top-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.envelope-for-label {
+  font-family: var(--font-sans);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--rose-dark);
+  opacity: 0.9;
+}
+
+.envelope-guest-name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 4.5vw, 1.95rem);
+  font-weight: 400;
+  color: var(--warm-brown-dark);
+  letter-spacing: 0.02em;
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* Center Seal Wrapper */
+.envelope-seal-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  z-index: 10;
+}
+
+/* 3D Embossed Terracotta/Rose Wax Seal */
+.wax-seal-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  outline: none;
+}
+
+.wax-seal-ring {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #E89E90 0%, #C46D62 40%, #94493F 85%, #6E2F28 100%);
+  box-shadow: 
+    0 10px 24px rgba(110, 47, 40, 0.42),
+    0 3px 8px rgba(110, 47, 40, 0.28),
+    inset 0 2px 5px rgba(255, 255, 255, 0.45),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.35s ease;
+}
+
+.wax-seal-button:hover .wax-seal-ring {
+  transform: scale(1.08);
+  box-shadow: 
+    0 14px 32px rgba(110, 47, 40, 0.5),
+    0 4px 10px rgba(110, 47, 40, 0.32),
+    inset 0 2px 6px rgba(255, 255, 255, 0.55);
+}
+
+.wax-seal-button:active .wax-seal-ring {
+  transform: scale(0.96);
+}
+
+.wax-seal-rim {
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(255, 255, 255, 0.32);
+  pointer-events: none;
+}
+
+.wax-seal-core {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 40%, rgba(196, 109, 98, 0.9) 0%, rgba(148, 73, 63, 0.95) 100%);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wax-monogram {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #FFF3EF;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.45), 0 1px 2px rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.wax-flourish {
+  font-size: 0.9rem;
+  color: #F8D3CB;
+  opacity: 0.9;
+}
+
+.wax-seal-tap-hint {
+  font-family: var(--font-sans);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--rose-dark);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 4px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(216, 175, 164, 0.55);
+  box-shadow: 0 3px 10px rgba(143, 91, 83, 0.1);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.wax-seal-button:hover .wax-seal-tap-hint {
+  background: #FFFFFF;
+  transform: translateY(1px);
+}
+
+/* Bottom Wedding Information */
+.envelope-bottom-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+  z-index: 2;
+}
+
+.envelope-couple-names {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warm-brown-dark);
+}
+
+.envelope-date-line {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+}
+
+/* Skip Button */
+.envelope-skip-btn {
+  margin-top: var(--space-6);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-text);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  padding: 6px 12px;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+.envelope-skip-btn:hover {
+  opacity: 1;
+  color: var(--warm-brown-dark);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .wax-envelope-card {
+    min-height: 440px;
+    padding: 36px 20px 28px;
+    border-radius: 20px;
+  }
+
+  .envelope-seal-wrapper {
+    margin: 14px 0;
+  }
+
+  .wax-seal-ring {
+    width: 74px;
+    height: 74px;
+  }
+
+  .wax-seal-core {
+    width: 52px;
+    height: 52px;
+  }
+
+  .wax-monogram {
+    font-size: 1.15rem;
+  }
+}

@@ -3,6 +3,7 @@ import { weddingData } from '../../config/weddingData';
 import { Eyebrow } from '../common/Eyebrow';
 import { Divider } from '../common/Divider';
 import { RevealAnimation } from '../common/RevealAnimation';
+import { VoiceNoteRecorder } from '../common/VoiceNoteRecorder';
 import { guestbookService } from '../../services/guestbookService';
 import './Guestbook.css';
 
@@ -11,6 +12,8 @@ export const Guestbook = () => {
   const [wishes, setWishes] = useState([]);
   const [authorName, setAuthorName] = useState('');
   const [wishText, setWishText] = useState('');
+  const [audioBlob, setAudioBlob] = useState(null);
+  const [audioUrl, setAudioUrl] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [confirmationMsg, setConfirmationMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
@@ -21,23 +24,42 @@ export const Guestbook = () => {
     });
   }, []);
 
+  const handleAudioComplete = (blob, url) => {
+    setAudioBlob(blob);
+    setAudioUrl(url);
+    if (!wishText.trim()) {
+      setWishText("🎙️ [Spoken Voice Blessing]");
+    }
+  };
+
+  const handleAudioDiscard = () => {
+    setAudioBlob(null);
+    setAudioUrl(null);
+    if (wishText === "🎙️ [Spoken Voice Blessing]") {
+      setWishText("");
+    }
+  };
+
   const handleAddWish = async (e) => {
     e.preventDefault();
     setErrorMsg('');
     setConfirmationMsg('');
 
-    if (!authorName.trim() || !wishText.trim()) return;
+    if (!authorName.trim() || (!wishText.trim() && !audioBlob)) return;
 
     setIsSubmitting(true);
     try {
       const created = await guestbookService.addWish({
         name: authorName,
-        wish: wishText
+        wish: wishText || "🎙️ [Spoken Voice Blessing]",
+        audioUrl: audioUrl || null
       });
 
       setWishes(prev => [created, ...prev]);
       setAuthorName('');
       setWishText('');
+      setAudioBlob(null);
+      setAudioUrl(null);
       setConfirmationMsg(guestbook.successMessage || "Thank you! Your wish has been recorded with love.");
 
       setTimeout(() => {
@@ -63,7 +85,7 @@ export const Guestbook = () => {
             <Eyebrow>{guestbook.eyebrow || "GUESTBOOK"}</Eyebrow>
             <h2 className="guestbook-main-heading">{guestbook.heading || "Leave a wish"}</h2>
             <Divider symbol="star" className="guestbook-divider" />
-            <p className="guestbook-subtitle">{guestbook.subtitle || "A few words we will keep forever."}</p>
+            <p className="guestbook-subtitle">{guestbook.subtitle || "A few words or spoken blessing we will keep forever."}</p>
           </RevealAnimation>
         </header>
 
@@ -97,7 +119,6 @@ export const Guestbook = () => {
                   </label>
                   <textarea
                     id="guestbook-wish-text"
-                    required
                     rows="2"
                     maxLength={600}
                     value={wishText}
@@ -106,6 +127,12 @@ export const Guestbook = () => {
                     className="guestbook-underline-textarea"
                   />
                 </div>
+
+                {/* 7. Audio Voice Blessing in Guestbook */}
+                <VoiceNoteRecorder
+                  onRecordingComplete={handleAudioComplete}
+                  onDiscard={handleAudioDiscard}
+                />
 
                 {confirmationMsg && (
                   <div className="guestbook-confirmation-banner" role="status">
@@ -151,6 +178,9 @@ export const Guestbook = () => {
                 <blockquote className="note-script-quote">
                   “{item.wish}”
                 </blockquote>
+                {item.audioUrl && (
+                  <audio controls src={item.audioUrl} className="wish-audio-playback" />
+                )}
                 <cite className="note-author-label">— {item.name.toUpperCase()}</cite>
               </RevealAnimation>
             ))}

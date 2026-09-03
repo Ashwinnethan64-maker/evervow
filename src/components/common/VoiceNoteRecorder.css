@@ -1,0 +1,88 @@
+/* ==========================================================================
+   VOICE NOTE RECORDER
+   ========================================================================== */
+
+.voice-recorder-block {
+  width: 100%;
+  margin: var(--space-4) 0;
+}
+
+.recorder-controls-row {
+  display: flex;
+  justify-content: center;
+}
+
+.mic-record-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px dashed rgba(216, 175, 164, 0.7);
+  border-radius: var(--radius-full);
+  padding: 8px 18px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--warm-brown);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mic-record-btn:hover {
+  background: #FFFBF8;
+  border-color: var(--rose-dark);
+  color: var(--warm-brown-dark);
+}
+
+.mic-record-btn.is-recording {
+  background: #FCE9E8;
+  border-color: #D86B6B;
+  color: #8F3B3B;
+  animation: pulseRecording 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulseRecording {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.03); }
+}
+
+.recording-preview-card {
+  background: var(--ivory);
+  border: 1px solid rgba(216, 175, 164, 0.5);
+  border-radius: 14px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.voice-note-label {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--rose-dark);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.voice-audio-element {
+  width: 100%;
+  max-width: 280px;
+  height: 36px;
+}
+
+.discard-voice-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  color: var(--muted-light);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.discard-voice-btn:hover {
+  color: #8F3B3B;
+}

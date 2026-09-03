@@ -1,0 +1,64 @@
+/* ==========================================================================
+   PRINTABLE ITINERARY BUTTON & PRINT STYLESHEET
+   ========================================================================== */
+
+.printable-itinerary-container {
+  display: inline-block;
+  margin-top: var(--space-4);
+}
+
+.itinerary-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: var(--radius-full);
+  padding: 9px 20px;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--warm-brown-dark);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(143, 91, 83, 0.08);
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.itinerary-download-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--champagne);
+  box-shadow: 0 8px 22px rgba(212, 175, 55, 0.2);
+}
+
+.btn-icon {
+  font-size: 13px;
+}
+
+/* Print Specific Rules: Format 1-Page Keepsake */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  .site-navigation,
+  .floating-music-player,
+  .wax-seal-overlay,
+  .rsvp-section,
+  .guestbook-section,
+  .itinerary-download-btn,
+  .add-to-calendar-container,
+  .ambient-motion-container,
+  .hero-scroll-block {
+    display: none !important;
+  }
+
+  .hero-section,
+  .invitation-section,
+  .venue-section {
+    page-break-inside: avoid;
+    padding: 20px 0 !important;
+    background: none !important;
+  }
+}

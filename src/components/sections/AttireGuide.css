@@ -1,0 +1,99 @@
+/* ==========================================================================
+   ATTIRE & COLOR PALETTE GUIDE
+   ========================================================================== */
+
+.attire-guide-section {
+  width: 100%;
+  max-width: 860px;
+  margin: var(--space-12) auto 0;
+}
+
+.attire-guide-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(230, 218, 208, 0.8);
+  border-radius: 24px;
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  box-shadow: 
+    0 8px 24px -4px rgba(143, 91, 83, 0.04),
+    0 16px 36px -8px rgba(143, 91, 83, 0.08);
+  box-sizing: border-box;
+}
+
+.attire-guide-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  color: var(--warm-brown-dark);
+  margin: var(--space-1) 0 var(--space-2);
+}
+
+.attire-divider {
+  max-width: 120px;
+  margin: var(--space-2) auto var(--space-4);
+}
+
+.attire-guide-desc {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--muted-text);
+  max-width: 580px;
+  margin: 0 auto var(--space-8);
+  line-height: 1.7;
+}
+
+/* Swatches Row */
+.attire-palette-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 4vw, 36px);
+  flex-wrap: wrap;
+}
+
+.attire-swatch-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.attire-swatch-item:hover {
+  transform: translateY(-4px);
+}
+
+.attire-swatch-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 14px rgba(143, 91, 83, 0.14);
+  position: relative;
+  overflow: hidden;
+}
+
+.swatch-shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.swatch-name {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--warm-brown-dark);
+  letter-spacing: 0.05em;
+}
+
+.swatch-note {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 11px;
+  color: var(--muted-light);
+}

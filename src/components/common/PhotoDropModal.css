@@ -1,0 +1,190 @@
+/* ==========================================================================
+   PHOTO DROP MODAL & REAL SCANNABLE QR CODE
+   ========================================================================== */
+
+.photo-drop-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(47, 36, 30, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  animation: modalFadeIn 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@keyframes modalFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.photo-drop-modal-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid rgba(216, 175, 164, 0.6);
+  border-radius: 26px;
+  padding: 40px 32px;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(47, 36, 30, 0.3);
+  box-sizing: border-box;
+  animation: cardSlideUp 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@keyframes cardSlideUp {
+  0% { transform: translateY(20px) scale(0.96); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.photo-drop-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: var(--muted-light);
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+
+.photo-drop-close-btn:hover {
+  color: var(--warm-brown-dark);
+}
+
+.photo-drop-flourish {
+  font-family: var(--font-serif);
+  color: var(--champagne);
+  font-size: 18px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.photo-drop-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3.5vw, 2rem);
+  color: var(--warm-brown-dark);
+  margin-bottom: var(--space-2);
+}
+
+.photo-drop-desc {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--muted-text);
+  line-height: 1.6;
+  margin-bottom: var(--space-6);
+}
+
+.photo-drop-qr-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: var(--space-6);
+}
+
+/* High Contrast QR Container */
+.photo-drop-qr-box {
+  width: 180px;
+  height: 180px;
+  background: #FFFFFF;
+  border: 1px solid rgba(216, 175, 164, 0.65);
+  border-radius: 18px;
+  padding: 10px;
+  box-shadow: 0 8px 24px rgba(143, 91, 83, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.qr-image-graphic {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.qr-fallback-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  text-align: center;
+}
+
+.qr-pending-icon {
+  font-size: 28px;
+}
+
+.qr-pending-text {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--muted-text);
+  line-height: 1.5;
+}
+
+.qr-loading-spinner {
+  width: 28px;
+  height: 28px;
+  border: 2px solid rgba(216, 175, 164, 0.3);
+  border-top-color: var(--rose-dark);
+  border-radius: 50%;
+  animation: qrSpin 0.8s linear infinite;
+}
+
+@keyframes qrSpin {
+  to { transform: rotate(360deg); }
+}
+
+.photo-drop-qr-hint {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--muted-light);
+  max-width: 260px;
+  line-height: 1.4;
+}
+
+/* Action Button */
+.photo-drop-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #E8C2BC 0%, #D4AF37 100%);
+  color: #2F241E;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  padding: 12px 28px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(143, 91, 83, 0.18);
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.3s ease;
+}
+
+.photo-drop-upload-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(143, 91, 83, 0.28);
+}
+
+.photo-drop-pending-notice {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rose-dark);
+  padding: 8px 16px;
+  background: rgba(244, 232, 227, 0.5);
+  border-radius: var(--radius-full);
+}

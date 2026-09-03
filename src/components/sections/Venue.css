@@ -397,3 +397,153 @@
     min-height: 280px;
   }
 }
+
+/* ==========================================================================
+   5. OUT-OF-TOWN GUEST CONCIERGE (BELGAUM TRAVEL & STAY)
+   ========================================================================== */
+
+.travel-concierge-wrapper {
+  width: 100%;
+  max-width: 1060px;
+  margin: var(--space-12) auto 0;
+}
+
+.travel-concierge-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(230, 218, 208, 0.75);
+  border-radius: 26px;
+  padding: var(--space-8) var(--space-6);
+  box-shadow: 
+    0 8px 24px -4px rgba(143, 91, 83, 0.04),
+    0 18px 44px -10px rgba(143, 91, 83, 0.08);
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .travel-concierge-card {
+    padding: var(--space-10) var(--space-8);
+  }
+}
+
+.concierge-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.concierge-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--rose-dark);
+}
+
+.concierge-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  color: var(--warm-brown-dark);
+  margin: var(--space-1) 0 var(--space-4);
+}
+
+.concierge-tabs-row {
+  display: inline-flex;
+  background: var(--cream);
+  border: 1px solid rgba(216, 175, 164, 0.4);
+  border-radius: var(--radius-full);
+  padding: 4px;
+  gap: 4px;
+}
+
+.concierge-tab-btn {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  color: var(--muted-text);
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.concierge-tab-btn.active-tab {
+  background: #FFFFFF;
+  color: var(--warm-brown-dark);
+  box-shadow: 0 2px 8px rgba(143, 91, 83, 0.12);
+}
+
+.concierge-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .concierge-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+.concierge-item-card {
+  background: #FFFDFB;
+  border: 1px solid rgba(230, 218, 208, 0.6);
+  border-radius: 18px;
+  padding: var(--space-6) var(--space-5);
+  box-shadow: 0 4px 14px rgba(143, 91, 83, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.concierge-item-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--rose);
+}
+
+.item-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--warm-brown-dark);
+  margin-bottom: var(--space-2);
+}
+
+.hotel-rating {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  margin-bottom: var(--space-2);
+}
+
+.item-detail {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  color: var(--muted-text);
+  line-height: 1.65;
+  margin: 0 0 var(--space-3) 0;
+  flex: 1;
+}
+
+.hotel-phone-link {
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--rose-dark);
+  text-decoration: none;
+}
+
+.hotel-phone-link:hover {
+  text-decoration: underline;
+}
+

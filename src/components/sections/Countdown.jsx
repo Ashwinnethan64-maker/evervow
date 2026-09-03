@@ -3,6 +3,7 @@ import { weddingData } from '../../config/weddingData';
 import { Eyebrow } from '../common/Eyebrow';
 import { Divider } from '../common/Divider';
 import { RevealAnimation } from '../common/RevealAnimation';
+import { AddToCalendar } from '../common/AddToCalendar';
 import './Countdown.css';
 
 export const Countdown = () => {
@@ -89,6 +90,11 @@ export const Countdown = () => {
             ))}
           </div>
         </div>
+
+        {/* 1-Click Add-to-Calendar Smart Button */}
+        <RevealAnimation animation="fade-up" delay={550} duration={850}>
+          <AddToCalendar />
+        </RevealAnimation>
 
       </div>
     </section>

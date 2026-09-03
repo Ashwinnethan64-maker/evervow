@@ -4,11 +4,13 @@ import { Eyebrow } from '../common/Eyebrow';
 import { Divider } from '../common/Divider';
 import { RevealAnimation } from '../common/RevealAnimation';
 import { Lightbox } from '../common/Lightbox';
+import { PhotoDropModal } from '../common/PhotoDropModal';
 import './Gallery.css';
 
 export const Gallery = () => {
   const { gallery } = weddingData;
   const [activeImageIndex, setActiveImageIndex] = useState(null);
+  const [isPhotoDropOpen, setIsPhotoDropOpen] = useState(false);
   const triggerElementsRef = useRef({});
 
   const images = gallery.images || [];
@@ -217,6 +219,21 @@ export const Gallery = () => {
 
         </div>
 
+        {/* 6. Live Photo Drop / QR Code Trigger Button */}
+        <div className="gallery-photo-drop-trigger-wrapper text-center">
+          <RevealAnimation animation="fade-up" delay={500} duration={800}>
+            <button
+              type="button"
+              className="gallery-photo-drop-btn"
+              onClick={() => setIsPhotoDropOpen(true)}
+              aria-label="Open wedding photo upload album and QR code"
+            >
+              <span className="btn-icon">📸</span>
+              <span>DROP YOUR WEDDING SNAPS FOR THE COUPLE</span>
+            </button>
+          </RevealAnimation>
+        </div>
+
       </div>
 
       {/* Accessible Full-Screen Lightbox Viewer */}
@@ -227,6 +244,12 @@ export const Gallery = () => {
         onClose={closeLightbox}
         onPrev={handlePrev}
         onNext={handleNext}
+      />
+
+      {/* 6. Photo Drop QR Modal */}
+      <PhotoDropModal
+        isOpen={isPhotoDropOpen}
+        onClose={() => setIsPhotoDropOpen(false)}
       />
     </section>
   );

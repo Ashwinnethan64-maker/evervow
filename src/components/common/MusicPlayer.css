@@ -1,0 +1,151 @@
+/* ==========================================================================
+   FLOATING MUSIC PLAYER — MINIMALIST VINYL & SOUND WAVE CONTROL
+   ========================================================================== */
+
+.floating-music-player {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.music-player-disc-btn {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 8px 24px rgba(143, 91, 83, 0.16);
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.3s ease;
+}
+
+.music-player-disc-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 30px rgba(143, 91, 83, 0.24);
+}
+
+/* Vinyl Disc Body */
+.vinyl-disc {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #2F241E 0%, #1A1411 75%, #3E3027 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.6);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease;
+}
+
+.music-player-disc-btn.is-playing .vinyl-disc {
+  animation: vinylSpin 4.5s linear infinite;
+}
+
+@keyframes vinylSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.vinyl-groove {
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.vinyl-center-label {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #E8C2BC 0%, #D4AF37 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vinyl-center-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #1A1411;
+}
+
+/* Audio Waves Indicator */
+.audio-waves {
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 3px 5px;
+  border-radius: 8px;
+  border: 1px solid rgba(216, 175, 164, 0.4);
+  box-shadow: 0 2px 8px rgba(143, 91, 83, 0.1);
+}
+
+.wave-bar {
+  width: 2px;
+  height: 4px;
+  background: var(--rose-dark);
+  border-radius: 2px;
+  transition: height 0.2s ease;
+}
+
+.waves-active .bar-1 {
+  animation: waveDance 0.8s ease-in-out infinite alternate;
+}
+
+.waves-active .bar-2 {
+  animation: waveDance 0.8s ease-in-out 0.2s infinite alternate;
+}
+
+.waves-active .bar-3 {
+  animation: waveDance 0.8s ease-in-out 0.4s infinite alternate;
+}
+
+@keyframes waveDance {
+  0% { height: 3px; }
+  100% { height: 11px; }
+}
+
+/* Tooltip */
+.music-player-tooltip {
+  background: rgba(255, 253, 249, 0.95);
+  border: 1px solid rgba(216, 175, 164, 0.4);
+  padding: 6px 12px;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(143, 91, 83, 0.1);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--warm-brown);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  white-space: nowrap;
+  animation: tooltipPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes tooltipPulse {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+}
+
+@media (max-width: 640px) {
+  .floating-music-player {
+    bottom: 18px;
+    left: 18px;
+  }
+}

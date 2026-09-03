@@ -3,6 +3,7 @@ import { weddingData } from '../../config/weddingData';
 import { BrandLogo } from '../common/BrandLogo';
 import { Divider } from '../common/Divider';
 import { RevealAnimation } from '../common/RevealAnimation';
+import { PrintableItinerary } from '../common/PrintableItinerary';
 import './Footer.css';
 
 export const Footer = () => {
@@ -68,8 +69,13 @@ export const Footer = () => {
           </div>
         </RevealAnimation>
 
+        {/* 8. Downloadable Keepsake / Printable PDF Itinerary */}
+        <RevealAnimation animation="fade-up" delay={580} className="footer-anim-block">
+          <PrintableItinerary />
+        </RevealAnimation>
+
         {/* 6. Delicate Final Brand Signature (620ms delay) */}
-        <RevealAnimation animation="fade-in" delay={620} className="footer-anim-block">
+        <RevealAnimation animation="fade-in" delay={640} className="footer-anim-block">
           <p className="footer-brand-tag">EverVow • Fine Art Wedding Invitations</p>
         </RevealAnimation>
 

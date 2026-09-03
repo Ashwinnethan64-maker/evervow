@@ -267,6 +267,14 @@
   margin-top: auto;
 }
 
+.wish-audio-playback {
+  width: 100%;
+  max-width: 260px;
+  height: 32px;
+  margin-bottom: 12px;
+}
+
+
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
   .guestbook-floating-card {

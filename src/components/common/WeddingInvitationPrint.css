@@ -1,0 +1,267 @@
+/* ==========================================================================
+   DEDICATED ONE-PAGE WEDDING INVITATION PRINT STYLESHEET
+   Ensures exactly 1 physical sheet / A4 page output with 0 website bleed
+   ========================================================================== */
+
+/* Hidden on normal screen rendering */
+.wedding-print-sheet {
+  display: none;
+}
+
+/* Print Media Query: Exclusively Renders the Dedicated Invitation Sheet */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #FAF8F5 !important;
+    color: #2F241E !important;
+    width: 100% !important;
+    height: 100% !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Completely Hide the entire normal website UI */
+  .site-wrapper > *:not(.wedding-print-sheet),
+  .site-navigation,
+  .floating-music-player,
+  .wax-seal-overlay,
+  #main-content,
+  .editorial-footer,
+  .ambient-motion-container,
+  .photo-drop-overlay {
+    display: none !important;
+  }
+
+  /* Make dedicated print container visible and fixed to exactly 1 page */
+  .wedding-print-sheet {
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    background: #FAF8F5 !important;
+    box-sizing: border-box !important;
+    page-break-before: avoid !important;
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+    overflow: hidden !important;
+  }
+
+  .print-page-boundary {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16mm 18mm;
+    box-sizing: border-box;
+  }
+
+  .print-outer-border {
+    width: 100%;
+    height: 100%;
+    border: 1.5pt solid #D4AF37;
+    padding: 4mm;
+    box-sizing: border-box;
+  }
+
+  .print-inner-border {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 0.5pt solid rgba(143, 91, 83, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6mm 10mm;
+    box-sizing: border-box;
+  }
+
+  /* Corner Flourishes */
+  .print-corner {
+    position: absolute;
+    font-family: var(--font-serif);
+    font-size: 14pt;
+    color: #D4AF37;
+    line-height: 1;
+  }
+
+  .corner-tl { top: 2mm; left: 2mm; }
+  .corner-tr { top: 2mm; right: 2mm; transform: scaleX(-1); }
+  .corner-bl { bottom: 2mm; left: 2mm; transform: scaleY(-1); }
+  .corner-br { bottom: 2mm; right: 2mm; transform: scale(-1); }
+
+  .print-content-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .print-invocation-text {
+    font-family: var(--font-serif);
+    font-size: 9pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #8F5B53;
+  }
+
+  .print-logo-block {
+    margin: 1mm 0;
+  }
+
+  .print-logo-block .brand-logo-emblem-frame {
+    width: 68px !important;
+    height: 68px !important;
+  }
+
+  .print-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #8F5B53;
+  }
+
+  .print-prompt {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 9.5pt;
+    color: #5C4A40;
+    margin: 0;
+  }
+
+  .print-names-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1mm;
+    margin: 1mm 0;
+  }
+
+  .print-script-name {
+    font-family: var(--font-script);
+    font-size: 34pt;
+    color: #2F241E;
+    line-height: 1.1;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .print-joiner {
+    font-family: var(--font-serif);
+    font-size: 8pt;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #8F5B53;
+  }
+
+  .print-divider-wrap {
+    margin: 1mm 0;
+    max-width: 90px;
+  }
+
+  .print-tagline {
+    font-family: var(--font-sans);
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #8F5B53;
+  }
+
+  .print-date-display {
+    font-family: var(--font-serif);
+    font-size: 13pt;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #2F241E;
+    margin: 0;
+  }
+
+  .print-time-display {
+    font-family: var(--font-sans);
+    font-size: 8pt;
+    letter-spacing: 0.15em;
+    color: #6E5F57;
+    margin: 0.5mm 0 0;
+    text-transform: uppercase;
+  }
+
+  .print-venue-name {
+    font-family: var(--font-serif);
+    font-size: 12pt;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: #2F241E;
+    margin: 0;
+  }
+
+  .print-venue-sub {
+    font-family: var(--font-sans);
+    font-size: 7.5pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6E5F57;
+    margin: 0.5mm 0 0;
+  }
+
+  /* Circular Ceremony Artwork */
+  .print-artwork-frame {
+    width: 60mm;
+    height: 38mm;
+    border-radius: 8px;
+    border: 1pt solid rgba(212, 175, 55, 0.45);
+    overflow: hidden;
+    margin: 1mm 0;
+  }
+
+  .print-artwork-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+  }
+
+  .print-regards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5mm;
+  }
+
+  .print-regards-text {
+    font-family: var(--font-sans);
+    font-size: 6.5pt;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #8F5B53;
+    margin: 0;
+  }
+
+  .print-brand-tag {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 7pt;
+    color: #8E7F77;
+    margin: 0;
+  }
+}

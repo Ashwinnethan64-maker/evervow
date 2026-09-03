@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { weddingData } from '../../config/weddingData';
 import { Eyebrow } from '../common/Eyebrow';
 import { Divider } from '../common/Divider';
 import { RevealAnimation } from '../common/RevealAnimation';
+import { AttireGuide } from './AttireGuide';
 import './Venue.css';
 
 export const Venue = () => {
-  const { venue } = weddingData;
+  const { venue, travelConcierge } = weddingData;
+  const [activeTab, setActiveTab] = useState('transit'); // 'transit' | 'stays'
 
   const activeAdditionalInfo = Object.entries(venue.additionalInfo || {}).filter(
     ([_, value]) => value && typeof value === 'string' && value.trim().length > 0
@@ -117,7 +119,69 @@ export const Venue = () => {
 
         </div>
 
-        {/* 3-Column Supporting Travel Information */}
+        {/* 5. Out-of-Town Guest Concierge (Belgaum Travel & Stays) */}
+        {travelConcierge && (
+          <div className="travel-concierge-wrapper">
+            <RevealAnimation animation="fade-up" delay={380} duration={850}>
+              <div className="travel-concierge-card">
+                <div className="concierge-header">
+                  <span className="concierge-eyebrow">OUT-OF-TOWN GUESTS</span>
+                  <h3 className="concierge-title">Belgaum Travel &amp; Stay Concierge</h3>
+                  
+                  {/* Tabs */}
+                  <div className="concierge-tabs-row" role="tablist">
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={activeTab === 'transit'}
+                      className={`concierge-tab-btn ${activeTab === 'transit' ? 'active-tab' : ''}`}
+                      onClick={() => setActiveTab('transit')}
+                    >
+                      ✈️ Transit &amp; Airports
+                    </button>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={activeTab === 'stays'}
+                      className={`concierge-tab-btn ${activeTab === 'stays' ? 'active-tab' : ''}`}
+                      onClick={() => setActiveTab('stays')}
+                    >
+                      🏨 Recommended Stays
+                    </button>
+                  </div>
+                </div>
+
+                {/* Tab Content */}
+                <div className="concierge-tab-content">
+                  {activeTab === 'transit' ? (
+                    <div className="concierge-grid transit-grid">
+                      {travelConcierge.transit.map((item) => (
+                        <div key={item.title} className="concierge-item-card">
+                          <h4 className="item-title">{item.title}</h4>
+                          <p className="item-detail">{item.detail}</p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="concierge-grid stays-grid">
+                      {travelConcierge.stays.map((hotel) => (
+                        <div key={hotel.name} className="concierge-item-card hotel-card">
+                          <h4 className="item-title">{hotel.name}</h4>
+                          <span className="hotel-rating">{hotel.rating}</span>
+                          <p className="item-detail">{hotel.distance}</p>
+                          <a href={`tel:${hotel.phone}`} className="hotel-phone-link">{hotel.phone}</a>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+              </div>
+            </RevealAnimation>
+          </div>
+        )}
+
+        {/* Supporting Travel Information */}
         {activeAdditionalInfo.length > 0 && (
           <div className="venue-additional-info-wrapper">
             <div className="venue-additional-grid">
@@ -136,6 +200,9 @@ export const Venue = () => {
             </div>
           </div>
         )}
+
+        {/* 4. Dress Code & Attire Palette Visual Guide */}
+        <AttireGuide />
 
       </div>
     </section>
